@@ -1,0 +1,7 @@
+//Konwersja typów
+===
+3>2>1; (false)
+3>2>=1;(true)
+"2"+1; (21 - zamiana stringa na liczbe)
+const zmienna = warunek ? true : false //if
+
