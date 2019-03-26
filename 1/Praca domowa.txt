@@ -1,0 +1,22 @@
+1. Napisz funkcje, która przyjmuje 2 parametry: miesiąc i imię.
+Funkcja ma zwracać:
+- jeżeli miesiąc to -> grudzień, styczeń, luty
+"imię + lubi zimę."
+
+- jeżeli miesiąc to -> marzec, kwiecień, maj
+"imię + kocha wiosnę."
+
+- jeżeli miesiąc to -> czerwiec, lipiec, sierpień
+"imię + się opala"
+
+- jeżeli miesiąc to -> wrzesień, październik, listopad "imię + musi 
+wrócić na studia."
+
+2. Napisz funkcje,ktora zwróci zdanie "Ala ma kota" w odwrotnej kolejnosci 
+czyli "kota ma Ala".
+
+3. Napisz pętlę która przejdzie od 0 do 15 i na każdej liczbie wypisze 
+jej parzystość
+
+Wysłać:
+https://docs.google.com/forms/d/e/1FAIpQLScmxIJZxSa7bhNRxxTLPTbHPT1RKYeN8ET5h1IiRlaRTa_Pew/viewform?usp=sf_link
