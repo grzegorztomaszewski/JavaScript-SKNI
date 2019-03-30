@@ -1,4 +1,4 @@
-//Zadanie o: Napisz funkcję która wypisze na ekranie powitanie dla osby o podanym imieniu
+    //Zadanie 0: Napisz funkcję która wypisze na ekranie powitanie dla osby o podanym imieniu
 
 function hello(imie){
 alert(imie);
@@ -11,8 +11,8 @@ function zwroc2(a,b){
 }
 
 //Zadanie 2: Napisz funkcję która odwróci podaną liczbę 1234 -> 4321
-
-//1234 -> "1234" -> ["1", "2", "3", "4"]
+ 
+1234 -> "1234" -> ["1", "2", "3", "4"]
 function odwrot(liczba){
     const liczbaStr = String(liczba);
     const odwrocona = [];
@@ -24,5 +24,10 @@ return Number(odwrocona.join(''));
 
 //alternatywa ^^
 return (liczba.toString().split(' ')).reverse().join('');
+}
+
+const zdanie = "Ala ma kota";
+function odwrot(zdanie){
+    return (zdanie.split()(' ').reverse().join('');
 }
 
