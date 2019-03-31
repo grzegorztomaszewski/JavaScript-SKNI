@@ -26,8 +26,3 @@ return Number(odwrocona.join(''));
 return (liczba.toString().split(' ')).reverse().join('');
 }
 
-const zdanie = "Ala ma kota";
-function odwrot(zdanie){
-    return (zdanie.split()(' ').reverse().join('');
-}
-
