@@ -1,0 +1,26 @@
+Strona do nauki: https://kursjs.pl
+
+1. Stwórz 2 obiekty produktów prod1 i prod2, gdzie każdy z nich będzie miał właściwości:
+
+- name - typu string,
+- price - typu number,
+- weight - typu number
+
+1) Wypisz oba obiekty w konsoli.
+2) Wypisz w konsoli teksty:
+"Produkt numer jeden to: aaa"
+"Produkt numer dwa to: bbb"
+"Produkty kosztują razem: ccc"
+"Produkty ważą razem: ddd"
+Gdzie pod zmienne podstaw odpowiednie dane.
+
+2.Stwórz obiekt currentUser. Obiekt niech ma właściwości:
+- name - typu string,
+- surname - typu string,
+- email - typu string,
+- www - typu string,
+- userType,
+
+oraz metodę show(), która wypisze wszystkie te rzeczy w konsoli
+
+Rozwiązanie: https://forms.gle/wQfWg8tdwDZHpw369
