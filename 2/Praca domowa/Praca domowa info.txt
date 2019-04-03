@@ -1,4 +1,5 @@
 Strona do nauki: https://kursjs.pl
+Podstrona tutorial obiektów: https://kursjs.pl/kurs/obiekty/obiekty.php?fbclid=IwAR0MWoC-q06JEVAEEf4RC_2t6B8AMY_lKLcGau_pi5bjWGHNUo78iMJcgz0#zadania
 
 1. Stwórz 2 obiekty produktów prod1 i prod2, gdzie każdy z nich będzie miał właściwości:
 
