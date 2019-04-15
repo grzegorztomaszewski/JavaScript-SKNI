@@ -4,6 +4,9 @@
 //Poniższy tekst wrzucić do pliku index.html na koniec sekcji <body></body>
 //<script type = "text/javascript" src = "index.js"></script>
 
+//event onchange - przypisuje event do zmiennej globalnej
+
+
 //Zadanie 2. Należy stworzyć selecta z tagami: ul,h1,ol,p
 let ul = document.querySelector("ul");
 let h1 = document.querySelector("h1");
@@ -31,7 +34,7 @@ ul.addEventListener("click", () => {                    //pierwszy tag
     }
 });
 
-//Zadanie 4. Na podstawie tej zmiennej po wciśnięciu guzika należy zmienić tło wszystkich elementów pasujących do wybranego taga
+//Zadanie 4. Na podstawie tej zmiennej po wciśnięciu guzika należy zmienić tło wszystkich elementów pasujących do wybranego taga na tło1
 let btn = document.getElementById("btn");
 
 btn.addEventListener('click', () => {
@@ -46,7 +49,7 @@ btn.addEventListener('click', () => {
 }
 });
 
-//Zadanie 5. Po kliknięciu w dowolny element (będący na liście tagów) na stronie, jeżeli miał on zmienione tło to należy je usunąć a jeśli nie to zmienić na inne niż punkcie 3
+//Zadanie 5. Po kliknięciu w dowolny element (będący na liście tagów) na stronie, jeżeli miał on zmienione tło to należy je usunąć a jeśli nie to zmienić na inne niż punkcie 3(tło1)
 h1.addEventListener('click', () => {                    //drugi tag
     if(h1.style.backgroundColor != defaultStatus){
         h1.style.backgroundColor = defaultStatus;
