@@ -8,6 +8,18 @@
 
 
 //Zadanie 2. Należy stworzyć selecta z tagami: ul,h1,ol,p
+//Poniższy tekst wrzucić do pliku index.html na początku sekcji <body></body>
+
+/*
+<select id="select">
+    <option value="ul">ul</option>
+    <option value="h1">h1</option>
+    <option value="ol">ol</option>
+    <option value="p">p</option>
+</select> 
+*/
+//dodać funkcje pod selektor
+
 let ul = document.querySelector("ul");
 let h1 = document.querySelector("h1");
 let ol = document.querySelector("ol");
