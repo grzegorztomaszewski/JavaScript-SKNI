@@ -25,12 +25,12 @@ let h1 = document.querySelector("h1");
 let ol = document.querySelector("ol");
 let p = document.querySelector("p");
 
-var global = 5; //zmienna globalna
+var global = ul; //zmienna globalna
 
 //Zadanie 3. Zmiana selecta ma powodować zmianę wartości zmiennej globalnej
 ul.addEventListener("click", () => {                    //pierwszy tag
     if(ul.style.backgroundColor === defaultStatus){
-        global = 10;    //zmiana wartości zmiennej globalnej
+        global = ul;    //zmiana wartości zmiennej globalnej
         document.body.style.fontSize  = 17 + "px";  //pomoc wizualna (zmienna została zmieniona)
         ul.style.backgroundColor = "lightblue";
         elementyDodatnieBack1();
