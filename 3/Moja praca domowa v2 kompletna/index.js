@@ -35,7 +35,7 @@ let pTagAll = document.querySelectorAll("p");
                     elementyUjemneUncolor();
                     elementyDodatnieGreen();
         }else if(selectedValue == "ul" && ulTagAll[0].style.backgroundColor == "lightblue"){
-                ulTagAll[0].style.backgroundColor = "lightgreen";   
+                ulTagAll[0].style.backgroundColor = "lightgreen";
                     elementyUjemneBlue();
                     elementyDodatnieGreen();
         }
@@ -48,7 +48,7 @@ let pTagAll = document.querySelectorAll("p");
                     elementyUjemneUncolor();
                     elementyDodatnieGreen();
         }else if(selectedValue == "h1" && h1TagAll[0].style.backgroundColor == "lightblue"){
-                h1TagAll[0].style.backgroundColor = "lightgreen";   
+                h1TagAll[0].style.backgroundColor = "lightgreen";
                     elementyUjemneBlue();
                     elementyDodatnieGreen();
         }
@@ -58,7 +58,7 @@ let pTagAll = document.querySelectorAll("p");
                     elementyUjemneUncolor();
                     elementyDodatnieGreen();
         }else if(selectedValue == "h1" && h1TagAll[1].style.backgroundColor == "lightblue"){
-                h1TagAll[1].style.backgroundColor = "lightgreen";   
+                h1TagAll[1].style.backgroundColor = "lightgreen";
                     elementyUjemneBlue();
                     elementyDodatnieGreen();
         }
@@ -68,7 +68,7 @@ let pTagAll = document.querySelectorAll("p");
                     elementyUjemneUncolor();
                     elementyDodatnieGreen();
         }else if(selectedValue == "h1" && h1TagAll[2].style.backgroundColor == "lightblue"){
-                h1TagAll[2].style.backgroundColor = "lightgreen";   
+                h1TagAll[2].style.backgroundColor = "lightgreen";
                     elementyUjemneBlue();
                     elementyDodatnieGreen();
         }
@@ -78,7 +78,7 @@ let pTagAll = document.querySelectorAll("p");
                     elementyUjemneUncolor();
                     elementyDodatnieGreen();
         }else if(selectedValue == "h1" && h1TagAll[3].style.backgroundColor == "lightblue"){
-                h1TagAll[3].style.backgroundColor = "lightgreen";   
+                h1TagAll[3].style.backgroundColor = "lightgreen";
                     elementyUjemneBlue();
                     elementyDodatnieGreen();
         }
@@ -91,7 +91,7 @@ let pTagAll = document.querySelectorAll("p");
                     elementyUjemneUncolor();
                     elementyDodatnieGreen();
         }else if(selectedValue == "ol" && olTagAll[0].style.backgroundColor == "lightblue"){
-                olTagAll[0].style.backgroundColor = "lightgreen";   
+                olTagAll[0].style.backgroundColor = "lightgreen";
                     elementyUjemneBlue();
                     elementyDodatnieGreen();
         }
@@ -101,7 +101,7 @@ let pTagAll = document.querySelectorAll("p");
                     elementyUjemneUncolor();
                     elementyDodatnieGreen();
         }else if(selectedValue == "ol" && olTagAll[1].style.backgroundColor == "lightblue"){
-                olTagAll[1].style.backgroundColor = "lightgreen";   
+                olTagAll[1].style.backgroundColor = "lightgreen";
                     elementyUjemneBlue();
                     elementyDodatnieGreen();
         }
@@ -111,7 +111,7 @@ let pTagAll = document.querySelectorAll("p");
                     elementyUjemneUncolor();
                     elementyDodatnieGreen();
         }else if(selectedValue == "ol" && olTagAll[2].style.backgroundColor == "lightblue"){
-                olTagAll[2].style.backgroundColor = "lightgreen";   
+                olTagAll[2].style.backgroundColor = "lightgreen";
                     elementyUjemneBlue();
                     elementyDodatnieGreen();
     }
@@ -124,7 +124,7 @@ let pTagAll = document.querySelectorAll("p");
                     elementyUjemneUncolor();
                     elementyDodatnieGreen();
         }else if(selectedValue == "p" && pTagAll[0].style.backgroundColor == "lightblue"){
-                pTagAll[0].style.backgroundColor = "lightgreen";   
+                pTagAll[0].style.backgroundColor = "lightgreen";
                     elementyUjemneBlue();
                     elementyDodatnieGreen();
         }
@@ -134,7 +134,7 @@ let pTagAll = document.querySelectorAll("p");
                     elementyUjemneUncolor();
                     elementyDodatnieGreen();
         }else if(selectedValue == "p" && pTagAll[1].style.backgroundColor == "lightblue"){
-                pTagAll[1].style.backgroundColor = "lightgreen";   
+                pTagAll[1].style.backgroundColor = "lightgreen";
                     elementyUjemneBlue();
                     elementyDodatnieGreen();
         }
@@ -145,7 +145,7 @@ let pTagAll = document.querySelectorAll("p");
                     elementyUjemneUncolor();
                     elementyDodatnieGreen();
         }else if(selectedValue == "p" && pTagAll[2].style.backgroundColor == "lightblue"){
-                pTagAll[2].style.backgroundColor = "lightgreen";   
+                pTagAll[2].style.backgroundColor = "lightgreen";
                     elementyUjemneBlue();
                     elementyDodatnieGreen();
         }
@@ -352,7 +352,7 @@ const liczbaUnColor = ulTagAll.length + h1TagAll.length + olTagAll.length + pTag
 
 //Funkcje, które zwiększają licznik
 function elementyDodatnieBlue(){                                                   //zwiększa licznik niebieskiego tła
-    blue.innerText = "Liczba elementów z tlem1 (niebieski): " + ++blueValue;      
+    blue.innerText = "Liczba elementów z tlem1 (niebieski): " + ++blueValue;
 }
 
 function elementyDodatnieGreen(){                                                   //zwiększa licznik zielonego tła
@@ -366,11 +366,11 @@ function elementyDodatnieUncolor(){                                             
 
 //Funkcje, które zmniejszają licznik
 function elementyUjemneBlue(){                                                     //zmniejsza licznik niebieskiego tła
-    blue.innerText = "Liczba elementów z tlem1 (niebieski): " + --blueValue;      
+    blue.innerText = "Liczba elementów z tlem1 (niebieski): " + --blueValue;
 }
 
 function elementyUjemneGreen(){                                                     //zmniejsza licznik zielonego tła
-    green.innerText = "Liczba elementów z tlem2 (zielony): " + --greenValue;       
+    green.innerText = "Liczba elementów z tlem2 (zielony): " + --greenValue;
 }
 
 function elementyUjemneUncolor(){                                                   //zmniejsza licznik elementów bez tła
