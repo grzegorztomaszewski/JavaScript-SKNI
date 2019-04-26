@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+    Zadanie:
+        - stwórz 4 przyciski
+        - każdy z przycisków  na kliknięciu tworzy nowy element html i po ponownym kliknięciu go usuwa
+        - wewnątrz tych pojemników mają zostać wpisane dane wyciągnięte z plików
+        - każdy przycisk odpowiada za inny format pliku (np. .txt, .xml, .json, .js, .html ...)
+        - każdy pojemnik (element zawierający dane) ma zostać ostylowany i to w odmienny sposób (odmienny czyli np różnice wielkości fontów, kolory)
+        - tego pliku nie można modyfikować (czyli elementy mają być tworzone w JS)
+        - zawartość plików dowolna, ale musicie pokazać że wyciągnęliście dane ze struktury pliku a nie tylko przepisaliście całą/część zawartości.
+        - aby zdobyć max punktów należy wykazać się też "sprytem",
+        czyli np. tworzenie 4 przycisków przez 4-krotne skopiowanie prawie takiego samego kodu nie da 100% nawet jeżeli nie będzie błędów :)
+
+        Odpowiedzi wysyłajcie na: https://forms.gle/3a9NeMhy9TuLgZsQ6
+
+
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script src="index.js"></script>
+</body>
+
+</html>
