@@ -13,6 +13,7 @@ let isBtn1Clicked = false;
 btn1.addEventListener("click", () => {
     if(test1 == false){
         const div = document.createElement("div");
+            div.id = "divTag"; //!!!
         test1 = true;
         console.log(div);
     }else{
