@@ -8,6 +8,8 @@ let btn2 = document.getElementById("btn2");
 let btn3 = document.getElementById("btn3");
 let btn4 = document.getElementById("btn4");
 
+let isBtn1Clicked = false;
+
 btn1.addEventListener("click", () => {
     if(test1 == false){
         const div = document.createElement("div");
