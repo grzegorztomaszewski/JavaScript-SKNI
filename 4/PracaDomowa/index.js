@@ -81,9 +81,7 @@ btn3.addEventListener("click", () => {
 
                  const parsedFile = JSON.parse(this.responseText);
                  console.log(parsedFile.names);
-
-                // h3.innerHTML = JSON.stringify(getelement);
-
+                 h3.innerHTML = parsedFile.names; //jeżeli chcesz wyświetlić konkretny element, to .names[index]
                 //style
                     h3.style.color = "blue";
                     h3.style.fontSize = "30px";
