@@ -63,14 +63,14 @@ xhttp.onreadystatechange = function(){
 //-------------------------------------------------------------
 
 //Tworzenie i podłączenie elementów html
-const div = document.createElement('div');
-console.log(div);
+//const div = document.createElement('div');
+//console.log(div);
 
 
-const h1 = document.createElement('h1');
-h1.innerText = displayText;
-div.appendChild(h1)
+//const h1 = document.createElement('h1');
+//h1.innerText = displayText;
+//div.appendChild(h1)
 //const htmlDiv = document.querySelector('div');
 //console.log(htmlDiv);
 
-document.getElementById('root').appendChild(div);
+//document.getElementById('root').appendChild(div);

@@ -1,38 +1,20 @@
-let test1 = false; 
-let test2 = false; 
-let test3 = false; 
-let test4 = false; 
+var test1 = false;
 
-let btn1 = document.getElementById("btn1");
-let btn2 = document.getElementById("btn2");
-let btn3 = document.getElementById("btn3");
-let btn4 = document.getElementById("btn4");
-
-let isBtn1Clicked = false;
+var btn1 = document.getElementById("btn1");
+var myH1;
+var h1;
 
 btn1.addEventListener("click", () => {
-    if(test1 == false){
-        const div = document.createElement("div");
-        test1 = true;
-        console.log(div);
-    }else{
-        //jak usunąć element bez id || jak nadać id tworzonemu elementowi
-        test1 = false;
-    }
+        if(test1 == false){
+             myH1 = document.querySelector("#root"); //pobiera docelowe miejsce elementu
+             h1 = document.createElement("h1");     //tworzy element
+            //h1.id = "h11";                               //nadaje id elementowi
+            myH1.appendChild(h1);                         //wstawia element do drzewa dokumentu DOM
+            test1 = true;
+        }else if(test1 == true){
+            h1.remove();
+            test1 = false;
+        }
 });
 
 
-btn2.addEventListener("click", () => {
-    const div = document.createElement('div');
-    console.log(div);
-});
-
-btn3.addEventListener("click", () => {
-    const div = document.createElement('div');
-    console.log(div);
-});
-
-btn4.addEventListener("click", () => {
-    const div = document.createElement('div');
-    console.log(div);
-});
