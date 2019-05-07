@@ -6,6 +6,7 @@ var btn4 = document.getElementById("btn4");
 
 var h1; 
 var h2;
+var h3;
 var myDiv;
 
 
@@ -34,4 +35,59 @@ btn1.addEventListener("click", () => {
             xhttp.open("GET", "plik1txt.txt", true);
             xhttp.send();
         }
+});
+
+
+btn2.addEventListener("click", () => {
+    if(document.getElementById("h22")){
+        h2.remove();
+    }else{
+                //pobieranie wartości z pliku
+        const xhttp2 = new XMLHttpRequest();
+        xhttp2.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status == 200){
+                //tworzenie elementu+DOM
+                 myDiv = document.querySelector("#root"); //pobiera docelowe miejsce elementu
+                 h2 = document.createElement("h1");     //tworzy element
+                 h2.id = "h22";                               //nadaje id elementowi
+                 myDiv.appendChild(h2);                         //wstawia element do drzewa dokumentu DOM
+
+                     displayText2 = this.responseXML.getElementsByTagName("name");
+                     h2.innerHTML = displayText2[0].innerHTML;
+
+                //style
+                    h2.style.color = "orange";
+                    h2.style.fontSize = "25px";
+            }
+        };
+        xhttp2.open("GET", "plik2xml.xml", true);
+        xhttp2.send();
+    }
+});
+
+btn3.addEventListener("click", () => {
+    if(document.getElementById("h22")){
+        h2.remove();
+    }else{
+                //pobieranie wartości z pliku
+        const xhttp2 = new XMLHttpRequest();
+        xhttp2.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status == 200){
+                //tworzenie elementu+DOM
+                 myDiv = document.querySelector("#root"); //pobiera docelowe miejsce elementu
+                 h2 = document.createElement("h1");     //tworzy element
+                 h2.id = "h22";                               //nadaje id elementowi
+                 myDiv.appendChild(h2);                         //wstawia element do drzewa dokumentu DOM
+
+                     displayText2 = this.responseXML.getElementsByTagName("name");
+                     h2.innerHTML = displayText2[0].innerHTML;
+
+                //style
+                    h2.style.color = "orange";
+                    h2.style.fontSize = "25px";
+            }
+        };
+        xhttp2.open("GET", "plik2xml.xml", true);
+        xhttp2.send();
+    }
 });
