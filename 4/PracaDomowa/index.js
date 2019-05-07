@@ -7,6 +7,7 @@ var btn4 = document.getElementById("btn4");
 var h1; 
 var h2;
 var h3;
+var h4;
 var myDiv;
 
 
@@ -80,7 +81,6 @@ btn3.addEventListener("click", () => {
                  myDiv.appendChild(h3);                         //wstawia element do drzewa dokumentu DOM
 
                  const parsedFile = JSON.parse(this.responseText);
-                 console.log(parsedFile.names);
                  h3.innerHTML = parsedFile.names; //jeżeli chcesz wyświetlić konkretny element, to .names[index]
                 //style
                     h3.style.color = "blue";
@@ -88,6 +88,35 @@ btn3.addEventListener("click", () => {
             }
         };
         xhttp2.open("GET", "plik3json.json", true);
+        xhttp2.send();
+    }
+});
+
+btn4.addEventListener("click", () => {
+    if(document.getElementById("h14")){
+        h4.remove();
+    }else{
+                //pobieranie wartości z pliku
+        const xhttp2 = new XMLHttpRequest();
+        xhttp2.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status == 200){
+                //tworzenie elementu+DOM
+                 myDiv = document.querySelector("#root"); //pobiera docelowe miejsce elementu
+                 h4 = document.createElement("h1");     //tworzy element
+                 h4.id = "h14";                               //nadaje id elementowi
+                 myDiv.appendChild(h4);                       //wstawia element do drzewa dokumentu DOM
+
+                    console.log();
+                     
+                    //h4.innerHTML = parsedFile2.myObj.name;
+
+                 //h4.innerHTML = parsedFile; //jeżeli chcesz wyświetlić konkretny element, to .names[index]
+                //style
+                    h4.style.color = "green";
+                    h4.style.fontSize = "35px";
+            }
+        };
+        xhttp2.open("GET", "plik4js.js", true);
         xhttp2.send();
     }
 });
