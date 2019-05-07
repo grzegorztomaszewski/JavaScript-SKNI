@@ -39,7 +39,7 @@ btn1.addEventListener("click", () => {
 
 
 btn2.addEventListener("click", () => {
-    if(document.getElementById("h22")){
+    if(document.getElementById("h12")){
         h2.remove();
     }else{
                 //pobieranie wartości z pliku
@@ -49,7 +49,7 @@ btn2.addEventListener("click", () => {
                 //tworzenie elementu+DOM
                  myDiv = document.querySelector("#root"); //pobiera docelowe miejsce elementu
                  h2 = document.createElement("h1");     //tworzy element
-                 h2.id = "h22";                               //nadaje id elementowi
+                 h2.id = "h12";                               //nadaje id elementowi
                  myDiv.appendChild(h2);                         //wstawia element do drzewa dokumentu DOM
 
                      displayText2 = this.responseXML.getElementsByTagName("name");
@@ -66,8 +66,8 @@ btn2.addEventListener("click", () => {
 });
 
 btn3.addEventListener("click", () => {
-    if(document.getElementById("h22")){
-        h2.remove();
+    if(document.getElementById("h13")){
+        h3.remove();
     }else{
                 //pobieranie wartości z pliku
         const xhttp2 = new XMLHttpRequest();
@@ -75,19 +75,21 @@ btn3.addEventListener("click", () => {
             if(this.readyState == 4 && this.status == 200){
                 //tworzenie elementu+DOM
                  myDiv = document.querySelector("#root"); //pobiera docelowe miejsce elementu
-                 h2 = document.createElement("h1");     //tworzy element
-                 h2.id = "h22";                               //nadaje id elementowi
-                 myDiv.appendChild(h2);                         //wstawia element do drzewa dokumentu DOM
+                 h3 = document.createElement("h1");     //tworzy element
+                 h3.id = "h13";                               //nadaje id elementowi
+                 myDiv.appendChild(h3);                         //wstawia element do drzewa dokumentu DOM
 
-                     displayText2 = this.responseXML.getElementsByTagName("name");
-                     h2.innerHTML = displayText2[0].innerHTML;
+                 const parsedFile = JSON.parse(this.responseText);
+                 console.log(parsedFile.names);
+
+                // h3.innerHTML = JSON.stringify(getelement);
 
                 //style
-                    h2.style.color = "orange";
-                    h2.style.fontSize = "25px";
+                    h3.style.color = "blue";
+                    h3.style.fontSize = "30px";
             }
         };
-        xhttp2.open("GET", "plik2xml.xml", true);
+        xhttp2.open("GET", "plik3json.json", true);
         xhttp2.send();
     }
 });
