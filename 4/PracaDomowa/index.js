@@ -8,26 +8,6 @@ GetXml(btn2, "plik2xml.xml", "h12", "h2"); //plik xml
 GetXml(btn3, "plik3json.json", "h13", "h3"); //plik xml
 GetXml(btn4, "plik4js.js", "h14", "h4"); //plik xml
 
-<<<<<<< HEAD
-let isBtn1Clicked = false;
-
-btn1.addEventListener("click", () => {
-    if(test1 == false){
-        const div = document.createElement("div");
-            div.id = "divTag"; //!!!
-        test1 = true;
-        console.log(div);
-    }else{
-        //jak usunąć element bez id || jak nadać id tworzonemu elementowi
-        test1 = false;
-    }
-});
-
-
-btn2.addEventListener("click", () => {
-    const div = document.createElement('div');
-    console.log(div);
-=======
 function GetXml(btn, path, id, name){
     btn.addEventListener("click", () => {
         if(document.getElementById(id)){
@@ -71,6 +51,5 @@ function GetXml(btn, path, id, name){
             xhttp.open("GET", path, true);
             xhttp.send();
         }
->>>>>>> z4
 });
 }
