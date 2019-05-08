@@ -71,8 +71,8 @@ btn3.addEventListener("click", () => {
         h3.remove();
     }else{
                 //pobieranie wartości z pliku
-        const xhttp2 = new XMLHttpRequest();
-        xhttp2.onreadystatechange = function(){
+        const xhttp3 = new XMLHttpRequest();
+        xhttp3.onreadystatechange = function(){
             if(this.readyState == 4 && this.status == 200){
                 //tworzenie elementu+DOM
                  myDiv = document.querySelector("#root"); //pobiera docelowe miejsce elementu
@@ -87,8 +87,8 @@ btn3.addEventListener("click", () => {
                     h3.style.fontSize = "30px";
             }
         };
-        xhttp2.open("GET", "plik3json.json", true);
-        xhttp2.send();
+        xhttp3.open("GET", "plik3json.json", true);
+        xhttp3.send();
     }
 });
 
@@ -97,8 +97,8 @@ btn4.addEventListener("click", () => {
         h4.remove();
     }else{
                 //pobieranie wartości z pliku
-        const xhttp2 = new XMLHttpRequest();
-        xhttp2.onreadystatechange = function(){
+        const xhttp4 = new XMLHttpRequest();
+        xhttp4.onreadystatechange = function(){
             if(this.readyState == 4 && this.status == 200){
                 //tworzenie elementu+DOM
                  myDiv = document.querySelector("#root"); //pobiera docelowe miejsce elementu
@@ -106,17 +106,15 @@ btn4.addEventListener("click", () => {
                  h4.id = "h14";                               //nadaje id elementowi
                  myDiv.appendChild(h4);                       //wstawia element do drzewa dokumentu DOM
 
-                    console.log();
-                     
-                    //h4.innerHTML = parsedFile2.myObj.name;
-
-                 //h4.innerHTML = parsedFile; //jeżeli chcesz wyświetlić konkretny element, to .names[index]
+                    const displayText3 = this.responseText;
+                    console.log(displayText3);
+                    h4.innerText = displayText3;
                 //style
                     h4.style.color = "green";
                     h4.style.fontSize = "35px";
             }
         };
-        xhttp2.open("GET", "plik4js.js", true);
-        xhttp2.send();
+        xhttp4.open("GET", "plik4js.js", true);
+        xhttp4.send();
     }
 });

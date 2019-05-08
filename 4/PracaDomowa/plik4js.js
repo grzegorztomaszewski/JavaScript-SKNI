@@ -1,3 +1,1 @@
-var myObj = {
-    name: "Karol"
-}
+przykładowy tekst z pliku js
