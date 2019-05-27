@@ -3,13 +3,19 @@
 }
 
 #gallery{
-font-size: 20px;
+font-size: 28px;
 font-weight: bold; 
-display: flex;
+display: inline-block;
 }
 
 #counterText{
+    display: inline-block;
     font-size: 11px;
+}
+
+#buttons{
+    display: inline-block;
+
 }
 
 #btEdit{
@@ -17,8 +23,10 @@ display: flex;
     background-color:#0084ff;
     border-radius: 4px;
     border: 1px, solid;
-    padding: 8px 20px;
+    width: 70px;
+    height: 35px;
     font-size: 13px;
+    margin: 32px 0px 0px 10px;
 }
 
 #btDelete{
@@ -26,23 +34,43 @@ display: flex;
     background-color:White;
     border-radius: 4px;
     border: 1px, solid;
-    padding: 8px 20px;
+    width: 70px;
+    height: 35px;
     font-size: 13px;
+    margin: 32px 0px 0px 2px;
 }
 
 #box1{
     background-color: white; 
-        width:300px;
+        width:330px;
         height: 350px;
         border: 1px solid black;
-        text-align: center;
-        margin-left: 9%;
+        margin-left: 1%;
+}
+
+#foto{
+    margin: 5px;
+    width:320px;
+    height: 200px;
+    background-color: rgb(226, 225, 225);
+    display: inline-block;
+}
+
+#textOnFoto{
+    text-align: center;
+    color: rgb(85, 93, 102);
+    
 }
 
 #fotoText{
-font-size: 14px
+    margin: 0%;
+    font-size: 24px;
+    font-weight: bold; 
+    display: flex;
+    margin: 6px 0px 0px 14px;
 }
 
-#descritpion{
-
+#description{
+    margin: 6px 0px 2px 14px;
+    display: flex;
 }
