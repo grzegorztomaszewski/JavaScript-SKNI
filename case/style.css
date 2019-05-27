@@ -1,0 +1,48 @@
+#navigation{
+    display: inline-block;
+}
+
+#gallery{
+font-size: 20px;
+font-weight: bold; 
+display: flex;
+}
+
+#counterText{
+    font-size: 11px;
+}
+
+#btEdit{
+    Color: White;
+    background-color:#0084ff;
+    border-radius: 4px;
+    border: 1px, solid;
+    padding: 8px 20px;
+    font-size: 13px;
+}
+
+#btDelete{
+    Color: black;
+    background-color:White;
+    border-radius: 4px;
+    border: 1px, solid;
+    padding: 8px 20px;
+    font-size: 13px;
+}
+
+#box1{
+    background-color: white; 
+        width:300px;
+        height: 350px;
+        border: 1px solid black;
+        text-align: center;
+        margin-left: 9%;
+}
+
+#foto{
+font-size: 12px
+}
+
+#descritpion{
+
+}
