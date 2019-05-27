@@ -2,6 +2,7 @@
     background-color: white;
 }
 
+/*Navigation*/
 #navigation{
     display: inline-block;
 }
@@ -33,7 +34,10 @@ margin: 1px 300px 20px 5px;
     position: relative;
     margin: 0px 0px 0px 10px
 }
+/*general box*/
+#generalBox{
 
+}
 
 
 /*Slider*/
@@ -103,7 +107,9 @@ border-radius: 50%;
         height: 350px;
         border: 1px solid rgb(214, 214, 214);
         border-radius: 4px;
-        margin: 0% 1% 1% 1%;
+        margin: 1% 1% 1% 1%;
+        display: inline-block;
+
 }
 
 #foto{
@@ -171,7 +177,8 @@ Bellow Create Box
         height: 350px;
         border: 1px solid rgb(214, 214, 214);
         border-radius: 4px;
-        margin: 0% 1% 1% 1%;
+        margin: 1% 1% 1% 1%;
+        display: inline-block;
 }
 
 #fotoCreate{
