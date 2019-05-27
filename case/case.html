@@ -12,17 +12,17 @@
 <body id = "body"> 
     <nav id = "navigation">
         <p id = "gallery">Galeria</p>   
-        <p id = "counterText">Licznik zdjęć: </p>   
+        <p id = "counterText">Licznik zdjęć: 1</p>   
         <button id = btReset>Reset</button> 
         <select class = selectList onchange=getSelectValue();>
                 <option value="box%">Zdjęcie1</option>
         </select>
-        <section id = "switchDark">
-        <label class="switch">
-            <input type="checkbox">
-            <span class="slider round"></span>
-        </label>
-        </section>
+        <form name = "switchDark" id = "switchDark">
+            <label class="switch">
+                <input type="checkbox" name = checkboxDark>
+                <span class="slider round"></span>
+            </label>
+        </form>
     </nav>
     <div id = "line"></div>
     <section id = "generalBox">

@@ -1,0 +1,14 @@
+{
+	"dane" : {
+		"user" : [
+			{
+			"imie" : "Jan",
+			"nazwisko" : "Kowalski"
+			},
+			{ 
+			"imie" : "Piotr",
+			"nazwisko" : "Nowak"
+			}
+		]
+	}
+}
