@@ -31,7 +31,7 @@ const generalBox = document.getElementById("generalBox");
     const btDelete = document.getElementById("btDelete");               //button Delete
 const boxCreate = document.getElementById("boxCreate");
     const fotoCreate = document.getElementById("fotoCreate");
-    const btAddFotoCreate = document.getElementById("btAddFotoCreate");
+    const btAddFotoCreateId = document.getElementById("btAddFotoCreate");
     const fotoTextCreate = document.getElementById("fotoTextCreate");
     const descriptionCreate = document.getElementById("descriptionCreate");
     const btCancel = document.getElementById("btCancel");                   //button Edit
@@ -63,7 +63,6 @@ switchDark.addEventListener("click", () => {
 
 
 
-
 //Button Edytuj
 btEdit.addEventListener("click", () => {
     inTitle = prompt("Wpisz tytuł");
@@ -80,5 +79,7 @@ btDelete.addEventListener("click", () =>{
     }
 });
 
-//Button Dodaj zdjęcie
-btAdd.add
+//Button Dodawania nowego zdjęcia
+btAddFotoCreateId.addEventListener('click', () =>{
+
+});
