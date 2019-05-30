@@ -31,11 +31,13 @@ const generalBox = document.getElementById("generalBox");
     const btDelete = document.getElementById("btDelete");               //button Delete
 const boxCreate = document.getElementById("boxCreate");
     const fotoCreate = document.getElementById("fotoCreate");
-    const btAddFotoCreateId = document.getElementById("btAddFotoCreate");
+    const btAddFotoCreateId = document.getElementById("btAddFotoCreateId");
+    const btAddFotoCreateLabel = document.getElementById("btAddFotoCreateLabel");
     const fotoTextCreate = document.getElementById("fotoTextCreate");
     const descriptionCreate = document.getElementById("descriptionCreate");
     const btCancel = document.getElementById("btCancel");                   //button Edit
     const btAdd = document.getElementById("btAdd");   
+
 
 //wczytywanie pliku JSON
 fetch("data.json")
@@ -79,7 +81,17 @@ btDelete.addEventListener("click", () =>{
     }
 });
 
-//Button Dodawania nowego zdjęcia
-btAddFotoCreateId.addEventListener('click', () =>{
-
-});
+//________________________________________________________
+    var openFile = function(event) {
+        var input = event.target;
+        
+        var reader = new FileReader();
+        reader.onload = function(){
+            var dataURL = reader.result;
+            var imgCreate = document.getElementById('imgCreate');
+            imgCreate.src = dataURL;
+        };
+        reader.readAsDataURL(input.files[0]);
+            $("#btAddFotoCreateId").remove();
+            $("#btAddFotoCreateLabel").remove();
+    };

@@ -42,12 +42,13 @@
     </section>
 
     <section id = "boxCreate">
-                <section id = "fotoCreate">
-                        <input type="file" name="file" id="btAddFotoCreateId" class="btAddFotoCreateClass" accept="image/*" />
-                        <label for="btAddFotoCreateId">Dodaj zdjęcie</label>
-                </section>
-                    <p id = "fotoTextCreate"></p>
-                    <p id = "descriptionCreate"></p>
+        <section id = "fotoCreate">
+            <img id='imgCreate'>
+            <input type="file" name="file" id="btAddFotoCreateId" class="btAddFotoCreateClass" accept="image/*" onchange='openFile(event)' />
+            <label id="btAddFotoCreateLabel" for="btAddFotoCreateId">Dodaj zdjęcie</label>
+        </section>
+        <p id = "fotoTextCreate"></p>
+        <p id = "descriptionCreate"></p>
                 <section id = "buttonsCreate">
                     <Button id = "btCancel">Anuluj</Button>
                     <Button id = "btAdd">Dodaj</Button>
