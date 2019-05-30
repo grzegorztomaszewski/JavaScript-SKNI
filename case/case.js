@@ -25,7 +25,7 @@ const generalBox = document.getElementById("generalBox");
     const box1 = document.getElementById("box1");
     const foto = document.getElementById("foto");
     const textOnFoto = document.getElementById("textOnFoto");
-    const fotoText = document.getElementById("fotoText");
+    let fotoText = document.getElementById("fotoText");
     const description = document.getElementById("description");
     const btEdit = document.getElementById("btEdit");                   //button Edit
     const btDelete = document.getElementById("btDelete");               //button Delete
@@ -37,6 +37,17 @@ const boxCreate = document.getElementById("boxCreate");
     const btCancel = document.getElementById("btCancel");                   //button Edit
     const btAdd = document.getElementById("btAdd");   
 
+//wczytywanie pliku JSON
+fetch("data.json")
+  .then(json => json.json()) //zamienia pobrany plik na format json. Jeżeli chcesz inny format wpisz.text() lub .blob() 
+  .then(json =>{    //dostęp do właściwości obiektu JSON
+    fotoTextCreate.innerText = json.Photo0.title;
+    descriptionCreate.innerText = json.Photo0.description;
+    fotoText.innerText = json.Photo1.title; //title foto pobrane z JSON'a
+    description.innerText = json.Photo1.description;
+
+});
+
 //Slider (zmiana koloru strony na ciemny)
 switchDark.addEventListener("click", () => {
     if(document.switchDark.checkboxDark.checked == false){
@@ -47,24 +58,16 @@ switchDark.addEventListener("click", () => {
         document.switchDark.checkboxDark.checked = false;
     }
 });
+//=---------------------------
+//$('#fotoText').html('Zdjęcie 2'); //pobranie elementu z DOM i zmaiana tekstu
 
-//Wczytywanie pliku JSON
-const xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function(){
-    if(this.readyState == 4 && this.status == 200){
-        console.log(this.responseText);
-        //const parsedFile = JSON.parse(this.responseText)
-        //console.log(parsedFile);
-       // alert(parsedFile.texts)
-        // for(let i=0; i< parsedFile.texts.lenght; i++){
-        //     console.log(parsedFile[i]);
-       // }
-    }
-};
- xhttp.open("GET", "JSON.json", true);
- xhttp.send();
+
+
 
 //Button Edytuj
 btEdit.addEventListener("click", () => {
-
+    inTitle = prompt("Wpisz tytuł");
+    fotoText.innerText = inTitle;
+    inDescription = prompt("Wpisz opis");
+    description.innerText = inDescription;
 });
