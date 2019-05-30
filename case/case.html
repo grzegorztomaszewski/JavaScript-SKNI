@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="style.css">    
 </head>
 <body id = "body"> 
+
     <nav id = "navigation">
         <p id = "gallery">Galeria</p>   
         <p id = "counterText">Licznik zdjęć: 1</p>   
@@ -23,12 +24,14 @@
             </label>
         </form>
     </nav>
+
     <div id = "line"></div>
-    <section id = "generalBox">
+
+    <section id = "generalBox"> 
         <section id = "box1">
             <section>
+               <!--<p id = "textOnFoto">320x200</p>-->
                     <img id = "foto" src="file:///c:/Users/Dell/Desktop/img/photo1.jpg">
-                <!--<p id = "textOnFoto">320x200</p>-->
             </section>
                 <p class = "foto-Text" id = "fotoText"></p>
                 <p id = "description"></p>
@@ -36,11 +39,12 @@
                 <Button id = "btEdit">Edytuj</Button>
                 <Button id = "btDelete">Usuń</Button>
             </section>
-        </section>
+    </section>
 
-        <section id = "boxCreate">
+    <section id = "boxCreate">
                 <section id = "fotoCreate">
-                    <button id = btFotoCreate>Dodaj zdjęcie</button>
+                        <input type="file" name="file" id="btAddFotoCreateId" class="btAddFotoCreateClass" />
+                        <label for="btAddFotoCreateId">Dodaj zdjęcie</label>
                 </section>
                     <p id = "fotoTextCreate"></p>
                     <p id = "descriptionCreate"></p>
@@ -50,6 +54,7 @@
                 </section>
             </section>
     </section>
+
         <script src="data.json"></script>
         <script type="text/javascript" src="jquery-3.4.1.js"></script>
         <script src="case.js"></script>

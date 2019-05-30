@@ -31,7 +31,7 @@ const generalBox = document.getElementById("generalBox");
     const btDelete = document.getElementById("btDelete");               //button Delete
 const boxCreate = document.getElementById("boxCreate");
     const fotoCreate = document.getElementById("fotoCreate");
-    const btFotoCreate = document.getElementById("btFotoCreate");
+    const btAddFotoCreate = document.getElementById("btAddFotoCreate");
     const fotoTextCreate = document.getElementById("fotoTextCreate");
     const descriptionCreate = document.getElementById("descriptionCreate");
     const btCancel = document.getElementById("btCancel");                   //button Edit
@@ -71,3 +71,14 @@ btEdit.addEventListener("click", () => {
     inDescription = prompt("Wpisz opis");
     description.innerText = inDescription;
 });
+
+//Button Usuń
+btDelete.addEventListener("click", () =>{
+    if( confirm("Czy na pewno chcesz usunąć to zdjęcie?"))
+    {
+        $("#box1").remove();
+    }
+});
+
+//Button Dodaj zdjęcie
+btAdd.add
