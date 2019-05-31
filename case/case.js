@@ -185,7 +185,7 @@ function insertBefore() {
     //Tworzenie elementu HTML wewnątrz buttons - delete
     const btnDel = document.createElement("Button");
         btnDel.id = `btDelete${boxCounter}`;
-        btnDel.classList = "btDeleteClass";
+        btnDel.classList = "btDelClass";
         btnDel.innerText = "Usuń";
     const div6 = document.querySelector("#"+el4.id);
     div6.appendChild(btnDel);
