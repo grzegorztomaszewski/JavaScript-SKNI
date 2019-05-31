@@ -126,14 +126,14 @@ border-radius: 50%;
     opacity: 0.8;
 } */
 
-#fotoText{
+.fotoTextClass{
     margin: 0%;
     font-weight: bold; 
     display: inline-block;
     margin: 6px 0px 0px 14px;
 }
 
-#description{
+.descriptionClass{
     margin: 6px 0px 2px 14px;
     display: flex;
 }
@@ -226,21 +226,7 @@ Bellow Create Box
     position: absolute;
 }
 
-#fotoTextCreate{
-    margin: 0%;
-    font-weight: bold; 
-    display: inline-block;
-    margin: 6px 0px 0px 14px;
-}
-
-#descriptionCreate{
-    margin: 6px 0px 2px 14px;
-    display: flex;  
-}
 /*Buttons box Create*/
-#buttonsCreate{
-    display: inline-block;
-}
 
 #btCancel{
     Color: White;
