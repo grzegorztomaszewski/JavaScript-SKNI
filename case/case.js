@@ -39,14 +39,15 @@ const boxCreate = document.getElementById("boxCreate");
     const btCancel = document.getElementById("btCancel");                   //button Edit
     const btAdd = document.getElementById("btAdd");   
     const btEditCreate = document.getElementById("btEditCreate");   
+const h2TagAll = document.querySelectorAll("h2");
+console.log(h2TagAll[1]);
 
 //Licznik zdjęć na stronie
-var counter = Number(1);
+var counter = 1;
 var boxCounter = Number(1);
 counterText.innerText =  "Licznik zdjęć: "+ counter;
-
 function CounterPlus(){
-    counterText.innerText =  "Licznik zdjęć: "+ (counter + Number(1));
+    counterText.innerText =  "Licznik zdjęć: "+ ++counter;
     boxCounter = boxCounter + Number(1);
 }
 
@@ -135,6 +136,8 @@ btAdd.addEventListener("click", () =>{
     }
 });
 
+
+//Tworzenie nowego elementu box w DOM
 function insertBefore() {
     const p = document.querySelector("#generalBox");
     const section = p.firstElementChild; //pobieranie pierwszego child generalBox'a czyli box1
@@ -189,7 +192,6 @@ function insertBefore() {
         btnDel.innerText = "Usuń";
     const div6 = document.querySelector("#"+el4.id);
     div6.appendChild(btnDel);
-
 }
 
 
