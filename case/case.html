@@ -15,7 +15,7 @@
         <p id = "counterText"></p>   
         <button id = btReset>Reset</button> 
         <select class = selectList onchange=getSelectValue();>
-                <option value="box%">Zdjęcie1</option>
+                <option value="boxClass">Zdjęcie1</option>
         </select>
         <form name = "switchDark" id = "switchDark">
             <label class="switch">
@@ -27,28 +27,28 @@
 
     <div id = "line"></div>
 
-    <section id = "generalBox"> 
-        <section id = "box1">
-            <section>
+    <section id = "generalBox" class = boxClass>
+        <section id = "box1" class = "box">
+            <section id = "fotoBox" Class = "fotoBoxClass">
                <!--<p id = "textOnFoto">320x200</p>-->
-                    <img id = "foto" src="file:///c:/Users/Dell/Desktop/img/photo1.jpg">
+                    <img class = imgClass id = "foto" src="file:///c:/Users/Dell/Desktop/img/photo1.jpg">
             </section>
-                <p class = "foto-Text" id = "fotoText"></p>
-                <p id = "description"></p>
-            <section id = "buttons">
-                <Button id = "btEdit">Edytuj</Button>
-                <Button id = "btDelete">Usuń</Button>
+                <h2 class = "fotoTextClass" id = "fotoText"></h2>
+                <h4 class = "descriptionClass" id = "description"></h4>
+            <section id = "buttons" class = "buttonsClass">
+                <Button id = "btEdit" class = "btEditClass">Edytuj</Button>
+                <Button id = "btDelete" class = "btDeleteClass">Usuń</Button>
             </section>
     </section>
 
-    <section id = "boxCreate">
+    <section id = "boxCreate" class = "box">
         <section id = "fotoCreate">
-            <img id='imgCreate'>
+            <img class = "imgClass" id='imgCreate'>
             <input type="file" name="file" id="btAddFotoCreateId" class="btAddFotoCreateClass" accept="image/*" onchange='openFile(event)' />
             <label id="btAddFotoCreateLabel" for="btAddFotoCreateId">Dodaj zdjęcie</label>
         </section>
-        <p id = "fotoTextCreate"></p>
-        <p id = "descriptionCreate"></p>
+        <h2 id = "fotoTextCreate"></h2>
+        <h4 id = "descriptionCreate"></h4>
                 <section id = "buttonsCreate">
                     <Button id = "btCancel">Anuluj</Button>
                     <Button id = "btAdd">Dodaj</Button>
@@ -63,3 +63,4 @@
 </body>
 
 </html>
+

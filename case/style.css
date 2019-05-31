@@ -107,7 +107,7 @@ border-radius: 50%;
 
 /*Bellow foto boxes*/
 
-#box1{
+.box{
     background-color: white; 
         width:330px;
         height: 350px;
@@ -115,16 +115,8 @@ border-radius: 50%;
         border-radius: 4px;
         margin: 1% 1% 1% 1%;
         display: inline-block;
-
 }
 
-#foto{
-    margin: 5px;
-    width:320px;
-    height: 200px;
-    background-color: rgb(226, 225, 225);
-    display: inline-block;
-}
 
 /* #textOnFoto{
     text-align: center;
@@ -136,19 +128,17 @@ border-radius: 50%;
 
 #fotoText{
     margin: 0%;
-    font-size: 24px;
     font-weight: bold; 
-    display: flex;
+    display: inline-block;
     margin: 6px 0px 0px 14px;
 }
 
 #description{
-    font-size: 14px;
     margin: 6px 0px 2px 14px;
     display: flex;
 }
 /*Buttons box 1*/
-#buttons{
+.buttonsClass{
     display: inline-block;
 }
 
@@ -197,6 +187,14 @@ Bellow Create Box
     background-color: rgb(226, 225, 225);
 }
 
+.imgClass{
+    margin: 5px;
+    width:320px;
+    height: 200px;
+    background-color: rgb(226, 225, 225);
+    display: inline-block;
+}
+
 #imgCreate{
     margin: 0px;
     width:320px;
@@ -230,14 +228,12 @@ Bellow Create Box
 
 #fotoTextCreate{
     margin: 0%;
-    font-size: 24px;
     font-weight: bold; 
-    display: flex;
+    display: inline-block;
     margin: 6px 0px 0px 14px;
 }
 
 #descriptionCreate{
-    font-size: 14px;
     margin: 6px 0px 2px 14px;
     display: flex;  
 }

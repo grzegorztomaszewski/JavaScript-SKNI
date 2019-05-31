@@ -23,6 +23,7 @@ const body = document.getElementById("body");
     const line = document.getElementById("line");
 const generalBox = document.getElementById("generalBox");
     const box1 = document.getElementById("box1");
+    const fotoBox = document.getElementById("fotoBox");
     const foto = document.getElementById("foto");
     const textOnFoto = document.getElementById("textOnFoto");
     let fotoText = document.getElementById("fotoText");
@@ -39,13 +40,14 @@ const boxCreate = document.getElementById("boxCreate");
     const btAdd = document.getElementById("btAdd");   
     const btEditCreate = document.getElementById("btEditCreate");   
 
-    
 //Licznik zdjęć na stronie
 var counter = Number(1);
+var boxCounter = Number(1);
 counterText.innerText =  "Licznik zdjęć: "+ counter;
 
 function CounterPlus(){
     counterText.innerText =  "Licznik zdjęć: "+ (counter + Number(1));
+    boxCounter = boxCounter + Number(1);
 }
 
 function CounterMinus(){
@@ -56,13 +58,13 @@ function CounterMinus(){
 fetch("data.json")
   .then(json => json.json()) //zamienia pobrany plik na format json. Jeżeli chcesz inny format wpisz.text() lub .blob() 
   .then(json =>{    //dostęp do właściwości obiektu JSON
-    fotoTextCreate.innerText = json.Photo0.title;
+    fotoTextCreate.innerText = json.Photo0.title;   //title foto pobrane z JSON'a dla foto Create
     descriptionCreate.innerText = json.Photo0.description;
-    fotoText.innerText = json.Photo1.title; //title foto pobrane z JSON'a
+    fotoText.innerText = json.Photo1.title; //title foto pobrane z JSON'a dla foto ostworzonego
     description.innerText = json.Photo1.description;
+    console.log(json);
 
 });
-
 //Slider (zmiana koloru strony na ciemny)
 switchDark.addEventListener("click", () => {
     if(document.switchDark.checkboxDark.checked == false){
@@ -117,23 +119,76 @@ reader.readAsDataURL(input.files[0]);
 
 //Button Dodaj
 btAdd.addEventListener("click", () =>{
-    // if(tytuł !== default && opis !== default && zdjęcie jest dodane (przycisk is dead)){
-    //     stwórz nowy template zdjęcia (wyczyść obecny)
-    //     sworzyć nowy element w DOMie z elementami box+1
-    // }
-    if(fotoTextCreate.innerText !== "Wpisz tytuł" &&  descriptionCreate.innerText !== "Wpisz opis" && fotoTextCreate.innerText !== "" &&  descriptionCreate.innerText !== ""){ //TODO: dodać warunek sprawdzający czy zdjęcie zostało dodane
-        CounterPlus();
+        if(fotoTextCreate.innerText !== "Wpisz tytuł" &&  descriptionCreate.innerText !== "Wpisz opis" && fotoTextCreate.innerText !== "" &&  descriptionCreate.innerText !== "" && imgCreate.src !== ""){
+            CounterPlus();
+            //tworzenie nowego elementu w DOM
+            insertBefore();
+            
+            //Dodawanie właściwości tworzonego obiektu do formatu JSON
+            var text = `{ "Photo${boxCounter}" : ` +
+            `{ "id":"${boxCounter}", "title":"${fotoTextCreate.innerText}", "description":"${descriptionCreate.innerText}"}}`;
+            var obj = JSON.parse(text);
+            console.log(obj);
     }else{
         alert("Błąd:\n Opis/tytuł nie został dodany lub jest pusty.\n Zdjęcie nie zostało zaimportowane!");
     }
 });
-const el = document.createElement("section");
 
-el.id = "box" +(counter+1);
-el.innerText = "Tekst w divie";
-el.setAttribute("title", "To jest tekst w dymku");
-el.classList.add("module");
-el.style.backgroundColor = "FF6633";
+function insertBefore() {
+    const p = document.querySelector("#generalBox");
+    const section = p.firstElementChild; //pobieranie pierwszego child generalBox'a czyli box1
+    const newNode = document.createElement("section");
+        newNode.id = "box"+boxCounter;
+        newNode.classList = "box";
+    p.insertBefore(newNode, section);
+    //Tworzenie elementu HTML fotoBox
+    const el = document.createElement("section");
+        el.id = `fotoBox${boxCounter}`;
+        el.classList = "fotoBoxClass";
+    const div = document.querySelector("#"+newNode.id);
+    div.appendChild(el); 
+    //Tworzenie elementu HTML wewnątrz fotoBox
+    const img = document.createElement("img");
+        img.id = `imgCreate${boxCounter}`;
+        img.classList = "imgClass";
+        img.src = imgCreate.src;
+    const div1 = document.querySelector("#"+el.id);
+    div1.appendChild(img); 
+    //Tworzenie elementu HTML - Title
+    const el2 = document.createElement("h2");
+        el2.classList = "fotoTextClass";
+        el2.id = `fotoText${boxCounter}`;
+        el2.innerText = inTitle;
+    const div2 = document.querySelector("#"+newNode.id);
+    div2.appendChild(el2);
+    //Tworzenie elementu HTML - description
+    const el3 = document.createElement("h4");
+        el3.id = `description${boxCounter}`;
+        el3.classList = "descriptionClass";
+        el3.innerText = inDescription;
+    const div3 = document.querySelector("#"+newNode.id);
+    div3.appendChild(el3); 
+    //Tworzenie elementu HTML - buttons
+    const el4 = document.createElement("section");
+        el4.id = `buttons${boxCounter}`;
+        el4.classList = "buttonsClass";
+    const div4 = document.querySelector("#"+newNode.id);
+    div4.appendChild(el4);
+    //Tworzenie elementu HTML wewnątrz buttons - edit
+    const btnEdit = document.createElement("Button");
+        btnEdit.id = `btEdit${boxCounter}`;
+        btnEdit.classList = "btEditClass";
+        btnEdit.innerText = "Edytuj";
+    const div5 = document.querySelector("#"+el4.id);
+    div5.appendChild(btnEdit);
+    //Tworzenie elementu HTML wewnątrz buttons - delete
+    const btnDel = document.createElement("Button");
+        btnDel.id = `btDelete${boxCounter}`;
+        btnDel.classList = "btDeleteClass";
+        btnDel.innerText = "Usuń";
+    const div6 = document.querySelector("#"+el4.id);
+    div6.appendChild(btnDel);
 
-const div = document.querySelector(".test-first"); //pobieramy miejsce docelowe
-div.appendChild(el); //wstawiamy element do drzewa dokumentu
+}
+
+
