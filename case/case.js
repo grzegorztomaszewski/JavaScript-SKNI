@@ -129,6 +129,7 @@ btAdd.addEventListener("click", () =>{
             `{ "id":"${boxCounter}", "title":"${fotoTextCreate.innerText}", "description":"${descriptionCreate.innerText}"}}`;
             var obj = JSON.parse(text);
             console.log(obj);
+
     }else{
         alert("Błąd:\n Opis/tytuł nie został dodany lub jest pusty.\n Zdjęcie nie zostało zaimportowane!");
     }
