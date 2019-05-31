@@ -6,10 +6,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">    
 </head>
+<body id = "body"> 
 
-<body>
-    <script src="case.js"></script>
+    <nav id = "navigation">
+        <p id = "gallery">Galeria</p>   
+        <p id = "counterText"></p>   
+        <button id = btReset>Reset</button> 
+        <select id = "selectListId" class = selectList>
+                <option value="h2">Wpisz tytuł</option>
+                <option value="h2">Zdjęcie 1</option>
+        </select>
+        <form name = "switchDark" id = "switchDark">
+            <label class="switch">
+                <input type="checkbox" name = checkboxDark>
+                <span class="slider round"></span>
+            </label>
+        </form>
+    </nav>
+
+    <div id = "line"></div>
+
+    <section id = "generalBox" class = boxClass>
+
+         <section id = "box1" class = "box">
+            <section id = "fotoBox" Class = "fotoBoxClass">
+                <!--<p id = "textOnFoto">320x200</p>-->
+                <img class = imgClass id = "foto" src="file:///c:/Users/Dell/Desktop/img/photo1.jpg">
+            </section>
+                <h2 class = "fotoTextClass" id = "fotoText"></h2>
+                <h4 class = "descriptionClass" id = "description"></h4>
+            <section id = "buttons" class = "buttonsClass">
+                <Button id = "btEdit" class = "btEditClass">Edytuj</Button>
+                <Button id = "btDelete" class = "btDelClass">Usuń</Button>
+            </section>
+        </section>
+
+        <section id = "boxCreate" class = "box">
+            <section id = "fotoCreate">
+                <img class = "imgClass" id='imgCreate'>
+                <input type="file" name="file" id="btAddFotoCreateId" class="btAddFotoCreateClass" accept="image/*" onchange='openFile(event)' />
+                <label id="btAddFotoCreateLabel" for="btAddFotoCreateId">Dodaj zdjęcie</label>
+            </section>
+                <h2 class = "fotoTextClass" id = "fotoTextCreate"></h2>
+                <h4 class = "descriptionClass" id = "descriptionCreate"></h4>
+            <section class = "buttonsClass" id = "buttonsCreate">
+                <Button id = "btCancel" class = "btClass">Anuluj</Button>
+                <Button id = "btAdd" class = "btClass">Dodaj</Button>
+                <Button id = "btEditCreate" class = "btEditClass">Edytuj</Button>
+            </section>
+        </section>
+
+    </section>
+
+        <script src="data.json"></script>
+        <script type="text/javascript" src="jquery-3.4.1.js"></script>
+        <script src="case.js"></script>
 </body>
 
 </html>
+
