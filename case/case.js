@@ -30,7 +30,8 @@ const generalBox = document.getElementById("generalBox");
     const description = document.getElementById("description");
     const btEdit = document.getElementById("btEdit");                   //button Edit
     const btDelete = document.getElementById("btDelete");               //button Delete
-const boxCreate = document.getElementById("boxCreate");
+    const btDelClass = document.getElementsByClassName("btDelClass");
+    const boxCreate = document.getElementById("boxCreate");
     const fotoCreate = document.getElementById("fotoCreate");
     const btAddFotoCreateId = document.getElementById("btAddFotoCreateId");
     const btAddFotoCreateLabel = document.getElementById("btAddFotoCreateLabel");
@@ -40,7 +41,7 @@ const boxCreate = document.getElementById("boxCreate");
     const btAdd = document.getElementById("btAdd");   
     const btEditCreate = document.getElementById("btEditCreate");   
 const h2TagAll = document.querySelectorAll("h2");
-console.log(h2TagAll[1]);
+
 
 //Licznik zdjęć na stronie
 var counter = 1;
@@ -87,13 +88,15 @@ btEdit.addEventListener("click", () => {
 });
 
 //Button Usuń
-btDelete.addEventListener("click", () =>{
-    if( confirm("Czy na pewno chcesz usunąć to zdjęcie?"))
+for (var i = 0; i < btDelClass.length; i++) {
+    btDelClass[i].addEventListener('click',() =>{
+    if(confirm("Czy na pewno chcesz usunąć to zdjęcie?"))
     {
         $("#box1").remove();
         CounterMinus();
     }
-});
+    });
+}
 
 //Button Edytuj Create
 btEditCreate.addEventListener("click", () => {
@@ -124,13 +127,12 @@ btAdd.addEventListener("click", () =>{
             CounterPlus();
             //tworzenie nowego elementu w DOM
             insertBefore();
-            
+
             //Dodawanie właściwości tworzonego obiektu do formatu JSON
             var text = `{ "Photo${boxCounter}" : ` +
             `{ "id":"${boxCounter}", "title":"${fotoTextCreate.innerText}", "description":"${descriptionCreate.innerText}"}}`;
             var obj = JSON.parse(text);
             console.log(obj);
-
     }else{
         alert("Błąd:\n Opis/tytuł nie został dodany lub jest pusty.\n Zdjęcie nie zostało zaimportowane!");
     }
@@ -192,6 +194,13 @@ function insertBefore() {
         btnDel.innerText = "Usuń";
     const div6 = document.querySelector("#"+el4.id);
     div6.appendChild(btnDel);
+    console.log(btDelClass);
+    //Tworzenie elementu HTML wewnątrz selectora
+    // const selector = document.createElement("option");
+    //     selector.value = "h2";
+    //     selector.innerText = inTitle;
+    // const div7 = document.querySelector("#selectListId");
+    // div7.appendChild(selector);
 }
 
 
