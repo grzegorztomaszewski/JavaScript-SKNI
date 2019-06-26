@@ -26,9 +26,9 @@ const generalBox = document.getElementById("generalBox");
     const fotoBox = document.getElementById("fotoBox");
     const foto = document.getElementById("foto");
     const textOnFoto = document.getElementById("textOnFoto");
-    let fotoText = document.getElementById("fotoText");
-    const description = document.getElementById("description");
-    const btEdit = document.getElementById("btEdit");                   //button Edit
+    let fotoText = document.getElementById("fotoText1");
+    const description = document.getElementById("description1");
+    const btEdit = document.getElementById("btEdit1");                   //button Edit
     const btDelete = document.getElementById("btDelete1");               //button Delete
     const btDelClass = document.getElementsByClassName("btDelClass");
     const boxCreate = document.getElementById("boxCreate");
@@ -192,13 +192,18 @@ function insertBefore() {
         btnDel.innerText = "Usuń";
     const div6 = document.querySelector("#"+el4.id);
     div6.appendChild(btnDel);
-    //_________
+
+    //_________Pobieranie nieistniejących elementów (tworzonych live)__________
     const newCreateBtDel = document.getElementById(`btDelete${boxCounter}`);
     const newCreateBox = document.getElementById(`box${boxCounter}`);
+    const newCreateBtEdit = document.getElementById(`btEdit${boxCounter}`);
+        const newCreatefotoText = document.getElementById(`fotoText${boxCounter}`);
+        const newCreatedescription = document.getElementById(`description${boxCounter}`);
+
     console.log(newCreateBtDel);
     //_______
 
-    // //Tworzenie usuwania
+    //Tworzenie usuwania
     newCreateBtDel.addEventListener('click',() =>{
         if(confirm("Czy na pewno chcesz usunąć to zdjęcie?"))
         {
@@ -206,6 +211,15 @@ function insertBefore() {
             CounterMinus();
         }
     });
+
+    //Tworzenie edycji
+    newCreateBtEdit.addEventListener("click", () => {
+        inTitle = prompt("Wpisz tytuł");
+        newCreatefotoText.innerText = inTitle;
+        inDescription = prompt("Wpisz opis");
+        newCreatedescription.innerText = inDescription;
+    });
+
     //Tworzenie elementu HTML wewnątrz selectora
     // const selector = document.createElement("option");
     //     selector.value = "h2";
