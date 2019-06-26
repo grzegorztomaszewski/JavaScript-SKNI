@@ -29,7 +29,7 @@ const generalBox = document.getElementById("generalBox");
     let fotoText = document.getElementById("fotoText");
     const description = document.getElementById("description");
     const btEdit = document.getElementById("btEdit");                   //button Edit
-    const btDelete = document.getElementById("btDelete");               //button Delete
+    const btDelete = document.getElementById("btDelete1");               //button Delete
     const btDelClass = document.getElementsByClassName("btDelClass");
     const boxCreate = document.getElementById("boxCreate");
     const fotoCreate = document.getElementById("fotoCreate");
@@ -53,7 +53,7 @@ function CounterPlus(){
 }
 
 function CounterMinus(){
-    counterText.innerText =  "Licznik zdjęć: "+ (counter - Number(1));
+    counterText.innerText =  "Licznik zdjęć: "+ --counter;
 }
 
 //wczytywanie pliku JSON
@@ -86,17 +86,15 @@ btEdit.addEventListener("click", () => {
     inDescription = prompt("Wpisz opis");
     description.innerText = inDescription;
 });
-
-//Button Usuń
-for (var i = 0; i < btDelClass.length; i++) {
-    btDelClass[i].addEventListener('click',() =>{
-    if(confirm("Czy na pewno chcesz usunąć to zdjęcie?"))
-    {
-        $("#box1").remove();
-        CounterMinus();
-    }
+//Button Usuń dla Box1
+    btDelete.addEventListener('click',() =>{
+        if(confirm("Czy na pewno chcesz usunąć to zdjęcie?"))
+        {
+            box1.remove();
+            CounterMinus();
+        }
     });
-}
+
 
 //Button Edytuj Create
 btEditCreate.addEventListener("click", () => {
@@ -194,7 +192,20 @@ function insertBefore() {
         btnDel.innerText = "Usuń";
     const div6 = document.querySelector("#"+el4.id);
     div6.appendChild(btnDel);
-    console.log(btDelClass);
+    //_________
+    const newCreateBtDel = document.getElementById(`btDelete${boxCounter}`);
+    const newCreateBox = document.getElementById(`box${boxCounter}`);
+    console.log(newCreateBtDel);
+    //_______
+
+    // //Tworzenie usuwania
+    newCreateBtDel.addEventListener('click',() =>{
+        if(confirm("Czy na pewno chcesz usunąć to zdjęcie?"))
+        {
+            newCreateBox.remove();
+            CounterMinus();
+        }
+    });
     //Tworzenie elementu HTML wewnątrz selectora
     // const selector = document.createElement("option");
     //     selector.value = "h2";
