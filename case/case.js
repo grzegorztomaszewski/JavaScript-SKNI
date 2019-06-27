@@ -243,5 +243,10 @@ function insertBefore() {
         newCreatedescription.innerText = inDescription;
     });
 }
-
-
+/*
+TODO:
+Usunięcie boxów
+usunięcie licznika
+Przywrócenie defaultowego koloru strony
+przywrócenie defaultowego tytułu i opisu dla kreatora
+*/
