@@ -1,18 +1,18 @@
-// Galeria zdjęć
-// Wizualizacja galerii w pliku case.jpg
-// Macie za zadanie stworzyć galerię zdjęć. 
-// Galeria powinna na starcie wczytywać kilka przykładowych zdjęć i ich opisów z plików. 
-// Powinien być jeden plik json z danymi zdjęć i odpowiednia ilość plików jpg/png.
-// Opisy i tytuły można edytować, karty zdjęć można dodawać i usuwać.
+// Galeria zdjęć                                                                                +
+// Wizualizacja galerii w pliku case.jpg                                                        +
+// Macie za zadanie stworzyć galerię zdjęć.                                                     +
+// Galeria powinna na starcie wczytywać kilka przykładowych zdjęć i ich opisów z plików.        + (if JSON - przeglądarka TOR)
+// Powinien być jeden plik json z danymi zdjęć i odpowiednia ilość plików jpg/png.              +
+// Opisy i tytuły można edytować, karty zdjęć można dodawać i usuwać.                           +
 // Zdjęcie po kliknięciu powinno się powiększać dwukrotnie(bądź dowolną ilość razy).
 // Strona posiada tryb jasny i ciemny.
-// Style wedle uznania, ważne aby było widać różnicę między trybami.
+// Style wedle uznania, ważne aby było widać różnicę między trybami.                            +
 // Przycisk RESET przywraca stronę do stanu początkowego, bez odświeżenia.
-// Licznik zdjęć w galerii powinien się zmieniać w zależności od ilości zdjęć
+// Licznik zdjęć w galerii powinien się zmieniać w zależności od ilości zdjęć                   +
 // Select obok resetu powinien zawierać aktualną listę tytułów zdjęć,
 //  i po wybraniu jednego z tytułów tylko to zdjęcie ma zostać w galerii.
-// Przycisk edytuj na kartach zdjęć ma odblokowywać i blokować 
-// możliwość edycji tytułu i opisu danego zdjęcia
+// Przycisk edytuj na kartach zdjęć ma odblokowywać i blokować                                  +
+// możliwość edycji tytułu i opisu danego zdjęcia                                               +
 
 //Pobieranie elementów z HTML
 const body = document.getElementById("body");
@@ -26,9 +26,9 @@ const generalBox = document.getElementById("generalBox");
     const fotoBox = document.getElementById("fotoBox");
     const foto = document.getElementById("foto");
     const textOnFoto = document.getElementById("textOnFoto");
-    let fotoText = document.getElementById("fotoText");
-    const description = document.getElementById("description");
-    const btEdit = document.getElementById("btEdit");                   //button Edit
+    let fotoText = document.getElementById("fotoText1");
+    const description = document.getElementById("description1");
+    const btEdit = document.getElementById("btEdit1");                   //button Edit
     const btDelete = document.getElementById("btDelete1");               //button Delete
     const btDelClass = document.getElementsByClassName("btDelClass");
     const boxCreate = document.getElementById("boxCreate");
@@ -56,6 +56,14 @@ function CounterMinus(){
     counterText.innerText =  "Licznik zdjęć: "+ --counter;
 }
 
+//Przycisk RESET
+btReset.addEventListener('click',() =>{
+    if(confirm("Czy na pewno chcesz zresetować stronę do ustawień fabrycznych?\n Spowoduje to całkowite usunięcie całej dodanej zawartości."))
+    {
+
+    }
+});
+
 //wczytywanie pliku JSON
 fetch("data.json")
   .then(json => json.json()) //zamienia pobrany plik na format json. Jeżeli chcesz inny format wpisz.text() lub .blob() 
@@ -77,7 +85,7 @@ switchDark.addEventListener("click", () => {
         document.switchDark.checkboxDark.checked = false;
     }
 });
-//=---------------------------
+//----------------------------
 
 //Button Edytuj box1
 btEdit.addEventListener("click", () => {
@@ -95,7 +103,7 @@ btEdit.addEventListener("click", () => {
         }
     });
 
-
+// <<<<<<<<<< CREATE >>>>>>>>>>>>>>
 //Button Edytuj Create
 btEditCreate.addEventListener("click", () => {
     inTitle = prompt("Wpisz tytuł");
@@ -114,9 +122,7 @@ reader.onload = function(){
     var imgCreate = document.getElementById('imgCreate');
     imgCreate.src = dataURL;
 };
-reader.readAsDataURL(input.files[0]);
-    $("#btAddFotoCreateId").remove();
-    $("#btAddFotoCreateLabel").remove();
+ reader.readAsDataURL(input.files[0]); //zostawia przycisk na zdjęciu
 };
 
 //Button Dodaj
@@ -131,8 +137,25 @@ btAdd.addEventListener("click", () =>{
             `{ "id":"${boxCounter}", "title":"${fotoTextCreate.innerText}", "description":"${descriptionCreate.innerText}"}}`;
             var obj = JSON.parse(text);
             console.log(obj);
+
+            //Usuwanie zdjęcia z kreatora po kliknięciu "dodaj"
+            imgCreate.src = null;
+            fotoTextCreate.innerText = "Wpisz tytuł";
+            descriptionCreate.innerText = "Wpisz opis";
     }else{
         alert("Błąd:\n Opis/tytuł nie został dodany lub jest pusty.\n Zdjęcie nie zostało zaimportowane!");
+    }
+});
+
+//Button Cancel
+btCancel.addEventListener('click',() =>{
+    if(confirm("Czy na pewno chcesz anulować wprowadzone zmiany?"))
+    {
+        //reset opisu i tytułu
+        fotoTextCreate.innerText = "Wpisz tytuł";
+        descriptionCreate.innerText = "Wpisz opis";
+
+        imgCreate.src = null; //usuwanie zdjęcia po kliknięciu anuluj
     }
 });
 
@@ -192,13 +215,18 @@ function insertBefore() {
         btnDel.innerText = "Usuń";
     const div6 = document.querySelector("#"+el4.id);
     div6.appendChild(btnDel);
-    //_________
+
+    //_________Pobieranie nieistniejących elementów (tworzonych live)__________
     const newCreateBtDel = document.getElementById(`btDelete${boxCounter}`);
     const newCreateBox = document.getElementById(`box${boxCounter}`);
+    const newCreateBtEdit = document.getElementById(`btEdit${boxCounter}`);
+        const newCreatefotoText = document.getElementById(`fotoText${boxCounter}`);
+        const newCreatedescription = document.getElementById(`description${boxCounter}`);
+
     console.log(newCreateBtDel);
     //_______
 
-    // //Tworzenie usuwania
+    //Tworzenie usuwania
     newCreateBtDel.addEventListener('click',() =>{
         if(confirm("Czy na pewno chcesz usunąć to zdjęcie?"))
         {
@@ -206,12 +234,19 @@ function insertBefore() {
             CounterMinus();
         }
     });
-    //Tworzenie elementu HTML wewnątrz selectora
-    // const selector = document.createElement("option");
-    //     selector.value = "h2";
-    //     selector.innerText = inTitle;
-    // const div7 = document.querySelector("#selectListId");
-    // div7.appendChild(selector);
+
+    //Tworzenie edycji
+    newCreateBtEdit.addEventListener("click", () => {
+        inTitle = prompt("Wpisz tytuł");
+        newCreatefotoText.innerText = inTitle;
+        inDescription = prompt("Wpisz opis");
+        newCreatedescription.innerText = inDescription;
+    });
 }
-
-
+/*
+TODO:
+Usunięcie boxów
+usunięcie licznika
+Przywrócenie defaultowego koloru strony
+przywrócenie defaultowego tytułu i opisu dla kreatora
+*/
