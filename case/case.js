@@ -41,7 +41,7 @@ const generalBox = document.getElementById("generalBox");
     const btAdd = document.getElementById("btAdd");   
     const btEditCreate = document.getElementById("btEditCreate");   
 const h2TagAll = document.querySelectorAll("h2");
-
+    const boxClass = document.querySelectorAll(".box");
 
 //Licznik zdjęć na stronie
 var counter = 1;
@@ -60,9 +60,20 @@ function CounterMinus(){
 btReset.addEventListener('click',() =>{
     if(confirm("Czy na pewno chcesz zresetować stronę do ustawień fabrycznych?\n Spowoduje to całkowite usunięcie całej dodanej zawartości."))
     {
-
+        //Usuwanie wszystkich boxów
+        for(let i=0; i<2; i++){
+            boxClass[i].remove();
+        }
+        counter = 1;
     }
 });
+/*
+TODO:
+Usunięcie boxów
+usunięcie licznika
+Przywrócenie defaultowego koloru strony
+przywrócenie defaultowego tytułu i opisu dla kreatora
+*/
 
 //wczytywanie pliku JSON
 fetch("data.json")
@@ -243,10 +254,3 @@ function insertBefore() {
         newCreatedescription.innerText = inDescription;
     });
 }
-/*
-TODO:
-Usunięcie boxów
-usunięcie licznika
-Przywrócenie defaultowego koloru strony
-przywrócenie defaultowego tytułu i opisu dla kreatora
-*/
