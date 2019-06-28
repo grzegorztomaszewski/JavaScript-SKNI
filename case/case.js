@@ -43,8 +43,8 @@ const generalBox = document.getElementById("generalBox");
 const h2TagAll = document.querySelectorAll("h2");
 
 //Licznik zdjęć na stronie
-let counter=1;
-let boxCounter = Number(1);
+var counter=1;
+var boxCounter = Number(1);
 counterText.innerText =  "Licznik zdjęć: "+ counter;
 function CounterPlus(){
     counterText.innerText =  "Licznik zdjęć: "+ ++counter;
@@ -56,15 +56,33 @@ function CounterMinus(){
 }
 
 //Przycisk RESET
+//jeśli box1 znajduje się w DOM to zwróć true, jeśli zwróć false
+//znaleźć sposób na przeszukanie DOM'u.Jeżeli znajdzie patrz powyżej.
+let xyz = document.querySelectorAll(".box");
+console.log(xyz);
+
 btReset.addEventListener('click',() =>{
     if(confirm("Czy na pewno chcesz zresetować stronę do ustawień fabrycznych?\n Spowoduje to całkowite usunięcie całej dodanej zawartości."))
     {
-        //Usuwanie wszystkich boxów
-        for(let i=0; i<boxCounter; i++){
-            const boxId = document.getElementById(`box${boxCounter}`);
-            boxId.remove();
-            CounterMinus();
-        }
+            var inCounter = 1;
+
+            if(`box${inCounter}` == inCounter) {
+                const boxId = document.getElementById(`box${inCounter}`);
+                boxId.remove();
+                CounterMinus();  
+            }        
+            else{
+                inCounter = ++inCounter;
+                console.log("default jest");
+            }
+            //Usuwanie wszystkich boxów
+
+                //jeżeli nie usuwamy wcześniej żadnego zdjęcia to wszystko działa
+                //jeżeli usuniemy zdjęcie i później jakieś stworzymy, to licznik sie sypie
+
+                //w momencie gdy boxId ==znajduje sie w drzewie DOM => wykonaj to^^^
+                //jeśli nie to break; i rób default czyli +1 do inCounter
+        
     }
 });
 /*
@@ -83,7 +101,7 @@ fetch("data.json")
     descriptionCreate.innerText = json.Photo0.description;
     fotoText.innerText = json.Photo1.title; //title foto pobrane z JSON'a dla foto ostworzonego
     description.innerText = json.Photo1.description;
-    console.log(json);
+    //console.log(json);
 
 });
 //Slider (zmiana koloru strony na ciemny)
@@ -147,7 +165,7 @@ btAdd.addEventListener("click", () =>{
             var text = `{ "Photo${boxCounter}" : ` +
             `{ "id":"${boxCounter}", "title":"${fotoTextCreate.innerText}", "description":"${descriptionCreate.innerText}"}}`;
             var obj = JSON.parse(text);
-            console.log(obj);
+            //console.log(obj);
 
             //Usuwanie zdjęcia z kreatora po kliknięciu "dodaj"
             imgCreate.src = null;
@@ -233,8 +251,6 @@ function insertBefore() {
     const newCreateBtEdit = document.getElementById(`btEdit${boxCounter}`);
         const newCreatefotoText = document.getElementById(`fotoText${boxCounter}`);
         const newCreatedescription = document.getElementById(`description${boxCounter}`);
-
-    console.log(newCreateBtDel);
     //_______
 
     //Tworzenie usuwania
