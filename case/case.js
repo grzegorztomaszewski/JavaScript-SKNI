@@ -41,11 +41,10 @@ const generalBox = document.getElementById("generalBox");
     const btAdd = document.getElementById("btAdd");   
     const btEditCreate = document.getElementById("btEditCreate");   
 const h2TagAll = document.querySelectorAll("h2");
-    const boxClass = document.querySelectorAll(".box");
 
 //Licznik zdjęć na stronie
-var counter = 1;
-var boxCounter = Number(1);
+let counter=1;
+let boxCounter = Number(1);
 counterText.innerText =  "Licznik zdjęć: "+ counter;
 function CounterPlus(){
     counterText.innerText =  "Licznik zdjęć: "+ ++counter;
@@ -61,10 +60,11 @@ btReset.addEventListener('click',() =>{
     if(confirm("Czy na pewno chcesz zresetować stronę do ustawień fabrycznych?\n Spowoduje to całkowite usunięcie całej dodanej zawartości."))
     {
         //Usuwanie wszystkich boxów
-        for(let i=0; i<2; i++){
-            boxClass[i].remove();
+        for(let i=0; i<boxCounter; i++){
+            const boxId = document.getElementById(`box${boxCounter}`);
+            boxId.remove();
+            CounterMinus();
         }
-        counter = 1;
     }
 });
 /*
