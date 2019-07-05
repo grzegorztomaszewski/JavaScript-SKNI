@@ -54,8 +54,8 @@ descriptionCreate.innerText = "Wpisz opis";
 //>>>>>>>>>>------------------<<<<<<<<<<
 
 //Licznik zdjęć na stronie
-var counter = 1;
-var boxCounter = Number(1);
+let counter = 1;
+let boxCounter = Number(1);
 counterText.innerText =  "Licznik zdjęć: "+ counter;
 function CounterPlus(){
     counterText.innerText =  "Licznik zdjęć: "+ ++counter;
@@ -71,19 +71,19 @@ btReset.addEventListener('click',() =>{
     if(confirm("Czy na pewno chcesz zresetować stronę do ustawień fabrycznych?\n Spowoduje to całkowite usunięcie całej dodanej zawartości."))
     {
         $('.box').remove();     //usuwanie wszystkich zdjęć oprócz 1wszego defaultowego
-
-         //boxCounter = Number(1);    //ustawianie boxCounter na 1
          //Ustawienie box1
             if(box1.style.display == "none"){
                     box1.style.display = "inline-block";
                     fotoText.innerText = "Zdjęcie 1";
                     description.innerText = "Husky Syberyjski";
-                    counterText.innerText =  "Licznik zdjęć: "+ ++counter;
+                    counter = 1;
+                    counterText.innerText =  "Licznik zdjęć: "+ counter;
             }
             else{
                 fotoText.innerText = "Zdjęcie 1";
                 description.innerText = "Husky Syberyjski";
-                counterText.innerText =  "Licznik zdjęć: "+ 1;
+                counter = 1;
+                counterText.innerText =  "Licznik zdjęć: "+ counter;
             }
         //Ustawienie tytułu i opisu dla boxCreate
         fotoTextCreate.innerText = "Wpisz tytuł";
@@ -96,11 +96,8 @@ btReset.addEventListener('click',() =>{
             }
 
         imgCreate.src = '';     //usuwanie zdjęcia, jeżeli zostało zaimportowane
-        counterText.innerText =  "Licznik zdjęć: "+ 1;     //Ustawianie counter na 1
     }
 });
-
-//zresetowałem i licznik był ok. usunąłem box1 i licznik pokazał 3
 
 
 //wczytywanie pliku JSON
