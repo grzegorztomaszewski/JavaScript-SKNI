@@ -42,9 +42,20 @@ const generalBox = document.getElementById("generalBox");
     const btEditCreate = document.getElementById("btEditCreate");   
 const h2TagAll = document.querySelectorAll("h2");
 
+
+//>>>>>>>>>-Gdy nie ma JSONA-<<<<<<<<<
+//Ustawienie opisu i tytułu dla box1
+fotoText.innerText = "Zdjęcie 1";
+description.innerText = "Husky Syberyjski";
+
+//Ustawienie opisu i tytułu dla boxCreate
+fotoTextCreate.innerText = "Wpisz tytuł";
+descriptionCreate.innerText = "Wpisz opis";
+//>>>>>>>>>>------------------<<<<<<<<<<
+
 //Licznik zdjęć na stronie
-var counter=1;
-var boxCounter = Number(1);
+let counter = 1;
+let boxCounter = Number(1);
 counterText.innerText =  "Licznik zdjęć: "+ counter;
 function CounterPlus(){
     counterText.innerText =  "Licznik zdjęć: "+ ++counter;
@@ -56,42 +67,38 @@ function CounterMinus(){
 }
 
 //Przycisk RESET
-//jeśli box1 znajduje się w DOM to zwróć true, jeśli zwróć false
-//znaleźć sposób na przeszukanie DOM'u.Jeżeli znajdzie patrz powyżej.
-let xyz = document.querySelectorAll(".box");
-console.log(xyz);
-
 btReset.addEventListener('click',() =>{
     if(confirm("Czy na pewno chcesz zresetować stronę do ustawień fabrycznych?\n Spowoduje to całkowite usunięcie całej dodanej zawartości."))
     {
-            var inCounter = 1;
-
-            if(`box${inCounter}` == inCounter) {
-                const boxId = document.getElementById(`box${inCounter}`);
-                boxId.remove();
-                CounterMinus();  
-            }        
-            else{
-                inCounter = ++inCounter;
-                console.log("default jest");
+        $('.box').remove();     //usuwanie wszystkich zdjęć oprócz 1wszego defaultowego
+         //Ustawienie box1
+            if(box1.style.display == "none"){
+                    box1.style.display = "inline-block";
+                    fotoText.innerText = "Zdjęcie 1";
+                    description.innerText = "Husky Syberyjski";
+                    counter = 1;
+                    counterText.innerText =  "Licznik zdjęć: "+ counter;
             }
-            //Usuwanie wszystkich boxów
+            else{
+                fotoText.innerText = "Zdjęcie 1";
+                description.innerText = "Husky Syberyjski";
+                counter = 1;
+                counterText.innerText =  "Licznik zdjęć: "+ counter;
+            }
+        //Ustawienie tytułu i opisu dla boxCreate
+        fotoTextCreate.innerText = "Wpisz tytuł";
+        descriptionCreate.innerText = "Wpisz opis";
 
-                //jeżeli nie usuwamy wcześniej żadnego zdjęcia to wszystko działa
-                //jeżeli usuniemy zdjęcie i później jakieś stworzymy, to licznik sie sypie
+        //Ustawianie kolorystyki strony
+            if(document.switchDark.checkboxDark.checked = true){
+                body.style.backgroundColor = "white";
+                document.switchDark.checkboxDark.checked = false;
+            }
 
-                //w momencie gdy boxId ==znajduje sie w drzewie DOM => wykonaj to^^^
-                //jeśli nie to break; i rób default czyli +1 do inCounter
-        
+        imgCreate.src = '';     //usuwanie zdjęcia, jeżeli zostało zaimportowane
     }
 });
-/*
-TODO:
-Usunięcie boxów
-usunięcie licznika
-Przywrócenie defaultowego koloru strony
-przywrócenie defaultowego tytułu i opisu dla kreatora
-*/
+
 
 //wczytywanie pliku JSON
 fetch("data.json")
@@ -127,7 +134,7 @@ btEdit.addEventListener("click", () => {
     btDelete.addEventListener('click',() =>{
         if(confirm("Czy na pewno chcesz usunąć to zdjęcie?"))
         {
-            box1.remove();
+            box1.style.display = "none";
             CounterMinus();
         }
     });
@@ -184,7 +191,7 @@ btCancel.addEventListener('click',() =>{
         fotoTextCreate.innerText = "Wpisz tytuł";
         descriptionCreate.innerText = "Wpisz opis";
 
-        imgCreate.src = null; //usuwanie zdjęcia po kliknięciu anuluj
+        imgCreate.src = ''; //usuwanie zdjęcia po kliknięciu anuluj
     }
 });
 
