@@ -235,12 +235,21 @@ function insertBefore() {
         el.classList = "fotoBoxClass";
     const div = document.querySelector("#"+newNode.id);
     div.appendChild(el); 
+    //Tworzenie elementu HTML wewnąrz section fotoBox (a - do lightboxa)
+    const a = document.createElement("a");
+    a.id = `aId${boxCounter}`;
+    a.setAttribute("data-lightbox", "mygallery");
+    a.setAttribute("data-title", `${fotoTextCreate.innerText}`);
+    a.href = imgCreate.src;
+
+    const div0 = document.querySelector(`#${el.id}`);
+    div0.appendChild(a);
     //Tworzenie elementu HTML wewnątrz fotoBox
     const img = document.createElement("img");
-        img.id = `imgCreate${boxCounter}`;
-        img.classList = "imgClass";
-        img.src = imgCreate.src;
-    const div1 = document.querySelector("#"+el.id);
+    img.id = `imgCreate${boxCounter}`;
+    img.classList = "imgClass";
+    img.src = imgCreate.src;
+    const div1 = document.querySelector(`#${a.id}`);
     div1.appendChild(img); 
     //Tworzenie elementu HTML - Title
     const el2 = document.createElement("h2");

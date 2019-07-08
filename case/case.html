@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">    
+    <link rel="stylesheet" type="text/css" href="lightbox.min.css">
 </head>
 <body id = "body"> 
     <nav id = "navigation">
@@ -24,12 +25,12 @@
     </nav>
 
     <div id = "line"></div>
-    
+
     <section id = "generalBox" class = boxClass>
          <section id = "box1" class = "box1">
             <section id = "fotoBox" Class = "fotoBoxClass">
                 <!--<p id = "textOnFoto">320x200</p>-->
-                <img class = imgClass id = "foto" src="file:///C:\Users\arox2\Desktop\Projekty lokalne\JavaScript-SKNI\case\img\photo1.jpg" alt = "Sprawdź ścieżkę do zdjęcia w pliku HTML">
+                <a href="img/photo1.jpg" data-lightbox="mygallery" data-title="Husky Syberyjski"><img class = imgClass id = "foto" src="file:///C:\Users\arox2\Desktop\Projekty lokalne\JavaScript-SKNI\case\img\photo1.jpg" alt = "Sprawdź ścieżkę do zdjęcia w pliku HTML"></a>
             </section>
                 <h2 class = "fotoTextClass" id = "fotoText1"></h2>
                 <h4 class = "descriptionClass" id = "description1"></h4>
@@ -58,6 +59,7 @@
         <script src="data.json"></script>
         <script type="text/javascript" src="jquery-3.4.1.js"></script>
         <script src="case.js"></script>
+        <script src="lightbox.js"></script>
         <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 </body>
 
