@@ -19,6 +19,7 @@ const body = document.getElementById("body");
     const counterText = document.getElementById("counterText");
     const btReset = document.getElementById("btReset");
     const selectList = document.getElementsByClassName("selectList");
+    const selectListId = document.querySelector("#selectListId");
     const switchDark = document.getElementById("switchDark");
     const line = document.getElementById("line");
 const generalBox = document.getElementById("generalBox");
@@ -38,8 +39,8 @@ const generalBox = document.getElementById("generalBox");
     const fotoTextCreate = document.getElementById("fotoTextCreate");
     const descriptionCreate = document.getElementById("descriptionCreate");
     const btCancel = document.getElementById("btCancel");                   //button Edit
-    const btAdd = document.getElementById("btAdd");   
-    const btEditCreate = document.getElementById("btEditCreate");   
+    const btAdd = document.getElementById("btAdd");
+    const btEditCreate = document.getElementById("btEditCreate");
 const h2TagAll = document.querySelectorAll("h2");
 
 
@@ -71,6 +72,11 @@ btReset.addEventListener('click',() =>{
     if(confirm("Czy na pewno chcesz zresetować stronę do ustawień fabrycznych?\n Spowoduje to całkowite usunięcie całej dodanej zawartości."))
     {
         $('.box').remove();     //usuwanie wszystkich zdjęć oprócz 1wszego defaultowego
+
+        //usunięcie dzieci selecta
+        while(selectListId.firstElementChild){
+            selectListId.firstElementChild.remove();
+        }
          //Ustawienie box1
             if(box1.style.display == "none"){
                     box1.style.display = "inline-block";
@@ -78,27 +84,32 @@ btReset.addEventListener('click',() =>{
                     description.innerText = "Husky Syberyjski";
                     counter = 1;
                     counterText.innerText =  "Licznik zdjęć: "+ counter;
-            }
-            else{
-                fotoText.innerText = "Zdjęcie 1";
-                description.innerText = "Husky Syberyjski";
-                counter = 1;
-                counterText.innerText =  "Licznik zdjęć: "+ counter;
-            }
-        //Ustawienie tytułu i opisu dla boxCreate
-        fotoTextCreate.innerText = "Wpisz tytuł";
-        descriptionCreate.innerText = "Wpisz opis";
+                }
+                else{
+                    fotoText.innerText = "Zdjęcie 1";
+                    description.innerText = "Husky Syberyjski";
+                    counter = 1;
+                    counterText.innerText =  "Licznik zdjęć: "+ counter;
+                }
+                //Ustawienie tytułu i opisu dla boxCreate
+                fotoTextCreate.innerText = "Wpisz tytuł";
+                descriptionCreate.innerText = "Wpisz opis";
+                
+                //Ustawianie kolorystyki strony
+                if(document.switchDark.checkboxDark.checked = true){
+                    body.style.backgroundColor = "white";
+                    document.switchDark.checkboxDark.checked = false;
+                }
+                
+                imgCreate.src = '';     //usuwanie zdjęcia, jeżeli zostało zaimportowane
+                createSelectBox1();
+        }
+    });
 
-        //Ustawianie kolorystyki strony
-            if(document.switchDark.checkboxDark.checked = true){
-                body.style.backgroundColor = "white";
-                document.switchDark.checkboxDark.checked = false;
-            }
-
-        imgCreate.src = '';     //usuwanie zdjęcia, jeżeli zostało zaimportowane
-    }
-});
-
+//Wybór danego selecta
+// if(){
+    
+// }
 
 //wczytywanie pliku JSON
 fetch("data.json")
@@ -111,6 +122,7 @@ fetch("data.json")
     //console.log(json);
 
 });
+
 //Slider (zmiana koloru strony na ciemny)
 switchDark.addEventListener("click", () => {
     if(document.switchDark.checkboxDark.checked == false){
@@ -136,8 +148,21 @@ btEdit.addEventListener("click", () => {
         {
             box1.style.display = "none";
             CounterMinus();
+
+           const delSelectBox1 = document.querySelector(`#selectbox1`);
+           delSelectBox1.remove();
         }
     });
+
+//Select dla box1
+function createSelectBox1(){
+    const newSelect = document.createElement("option");
+    newSelect.id = "selectbox1";
+    newSelect.classList = "selectListEl";
+    newSelect.innerText = `${fotoText.innerText}`;
+    selectListId.appendChild(newSelect);
+}
+createSelectBox1();
 
 // <<<<<<<<<< CREATE >>>>>>>>>>>>>>
 //Button Edytuj Create
@@ -256,6 +281,7 @@ function insertBefore() {
     const newCreateBtDel = document.getElementById(`btDelete${boxCounter}`);
     const newCreateBox = document.getElementById(`box${boxCounter}`);
     const newCreateBtEdit = document.getElementById(`btEdit${boxCounter}`);
+   
         const newCreatefotoText = document.getElementById(`fotoText${boxCounter}`);
         const newCreatedescription = document.getElementById(`description${boxCounter}`);
     //_______
@@ -264,8 +290,10 @@ function insertBefore() {
     newCreateBtDel.addEventListener('click',() =>{
         if(confirm("Czy na pewno chcesz usunąć to zdjęcie?"))
         {
-            newCreateBox.remove();
+            newCreateBox.remove();  //Usuwanie boxa
             CounterMinus();
+            const newSelectToDelete = document.querySelector(`#selectbox${boxCounter}`);    //Usuwanie selecta
+            newSelectToDelete.remove();
         }
     });
 
@@ -276,4 +304,11 @@ function insertBefore() {
         inDescription = prompt("Wpisz opis");
         newCreatedescription.innerText = inDescription;
     });
+
+    //Tworzenie selecta
+    const newSelect = document.createElement("option");
+        newSelect.id = `select${newNode.id}`;
+        newSelect.classList = "selectListEl"; // klasa tworzonych elementów select
+        newSelect.innerText = `${inTitle}`;
+    selectListId.appendChild(newSelect);
 }
