@@ -30,7 +30,9 @@
          <section id = "box1" class = "box1">
             <section id = "fotoBox" Class = "fotoBoxClass">
                 <!--<p id = "textOnFoto">320x200</p>-->
-                <a href="img/photo1.jpg" data-lightbox="mygallery" data-title="Husky Syberyjski"><img class = imgClass id = "foto" src="file:///C:\Users\arox2\Desktop\Projekty lokalne\JavaScript-SKNI\case\img\photo1.jpg" alt = "Sprawdź ścieżkę do zdjęcia w pliku HTML"></a>
+                <a href="img/photo1.jpg" data-lightbox="mygallery" data-title="Husky Syberyjski">
+                    <img class = imgClass id = "foto" src="file:///C:\Users\arox2\Desktop\Projekty lokalne\JavaScript-SKNI\case\img\photo1.jpg" alt = "Sprawdź ścieżkę do zdjęcia w pliku HTML">
+                </a>
             </section>
                 <h2 class = "fotoTextClass" id = "fotoText1"></h2>
                 <h4 class = "descriptionClass" id = "description1"></h4>
@@ -42,7 +44,7 @@
 
         <section id = "boxCreate">
             <section id = "fotoCreate">
-                <img class = "imgClass" id='imgCreate' alt = ""/>
+                <img class = "imgClassCreate" id='imgCreate' alt = ""/>
                 <input type="file" name="file" id="btAddFotoCreateId" class="btAddFotoCreateClass" accept="image/*" onchange='openFile(event)' />
                 <label id="btAddFotoCreateLabel" for="btAddFotoCreateId">Dodaj zdjęcie</label>
             </section>
@@ -62,6 +64,5 @@
         <script src="lightbox.js"></script>
         <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 </body>
-
 </html>
 
