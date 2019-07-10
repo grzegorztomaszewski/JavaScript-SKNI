@@ -23,7 +23,7 @@ margin: 1px 300px 20px 5px;
     Color: White;
     background-color:#0084ff;
     border-radius: 4px;
-    border: 1px, solid;
+    border: 1px solid gray;
     width: 70px;
     height: 35px;
     font-size: 13px;
@@ -41,7 +41,7 @@ margin: 1px 300px 20px 5px;
 }
 /*general box*/
 #generalBox{
-
+    margin-left: 15%;
 }
 
 
@@ -110,7 +110,7 @@ border-radius: 50%;
     background-color: white; 
         width:330px;
         height: 350px;
-        border: 1px solid rgb(214, 214, 214);
+        border: 1px solid #d6d6d6;
         border-radius: 4px;
         margin: 1% 1% 1% 1%;
         display: inline-block;
@@ -120,7 +120,7 @@ border-radius: 50%;
     background-color: white; 
         width:330px;
         height: 350px;
-        border: 1px solid rgb(214, 214, 214);
+        border: 1px solid #d6d6d6;
         border-radius: 4px;
         margin: 1% 1% 1% 1%;
         display: inline-block;
@@ -128,7 +128,7 @@ border-radius: 50%;
 
 /* #textOnFoto{
     text-align: center;
-    color: rgb(85, 93, 102);
+    color: #555d66;
     font-size: 24px;
     margin: 80px 0px 0px 0px;
     opacity: 0.8;
@@ -153,7 +153,7 @@ border-radius: 50%;
 .btEditClass{
     Color: White;
     border-radius: 4px;
-    border: 1px, solid;
+    border: 1px solid gray;
     width: 70px;
     height: 35px;
     font-size: 13px;
@@ -165,6 +165,7 @@ border-radius: 50%;
 #btDelete{
     Color: black;
     background-color:White;
+    border: 1px solid gray;
 }
 
 /*
@@ -175,7 +176,7 @@ Bellow Create Box
     background-color: white; 
         width:330px;
         height: 350px;
-        border: 1px solid rgb(214, 214, 214);
+        border: 1px solid #d6d6d6;
         border-radius: 4px;
         margin: 1% 1% 1% 1%;
         display: inline-block;
@@ -185,15 +186,21 @@ Bellow Create Box
     margin: 5px;
     width:320px;
     height: 200px;
-    background-color: rgb(226, 225, 225);
+    background-color: #e2e1e1;
 }
 
 .imgClass{
     margin: 5px;
     width:320px;
     height: 200px;
-    background-color: rgb(226, 225, 225);
+    background-color: #e2e1e1;
     display: inline-block;
+}
+
+.imgClass:hover{
+    transform: scale(1.1);
+    transition: 0.3s;
+    
 }
 
 #imgCreate{
@@ -218,7 +225,7 @@ Bellow Create Box
     width: 80px;
     height: 45px;
     border-radius: 4px;
-    border: 1px, solid;
+    border: 1px solid gray;
     font-size: 17px;
     text-align: center;
     margin: 60px 0px 0px 110px;
@@ -231,7 +238,7 @@ Bellow Create Box
 .btClass{
     Color: White;
     border-radius: 4px;
-    border: 1px, solid;
+    border: 1px solid gray;
     width: 70px;
     height: 35px;
     font-size: 13px;
@@ -242,7 +249,7 @@ Bellow Create Box
 .btDelClass{
     Color: black;
     border-radius: 4px;
-    border: 1px, solid;
+    border: 1px solid gray;
     width: 70px;
     height: 35px;
     font-size: 13px;    
@@ -254,12 +261,13 @@ Bellow Create Box
 #btCancel{
     background-color:#ff1d1d;
     margin: 32px 0px 0px 10px;
-
+    border: 1px solid gray;
 }
 
 #btAdd{
     Color: White;
-    background-color:rgb(61, 153, 42);
+    background-color: #3d992a;
+    border: 1px solid gray;
 }
 /* 
 hover - później dodac

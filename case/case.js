@@ -24,6 +24,7 @@ const body = document.getElementById("body");
     const line = document.getElementById("line");
 const generalBox = document.getElementById("generalBox");
     const box1 = document.getElementById("box1");
+    const boxClass = document.getElementsByClassName("box");
     const fotoBox = document.getElementById("fotoBox");
     const foto = document.getElementById("foto");
     const textOnFoto = document.getElementById("textOnFoto");
@@ -106,11 +107,6 @@ btReset.addEventListener('click',() =>{
         }
     });
 
-//Wybór danego selecta
-// if(){
-    
-// }
-
 //wczytywanie pliku JSON
 fetch("data.json")
   .then(json => json.json()) //zamienia pobrany plik na format json. Jeżeli chcesz inny format wpisz.text() lub .blob() 
@@ -123,13 +119,41 @@ fetch("data.json")
 
 });
 
+function changeColorDark() {
+    for(i=0; i<boxClass.length; i++) {
+      boxClass[i].style.backgroundColor = '#8d8d8d';
+      boxClass[i].style.border = "1px solid #3a3a3a";
+    }
+  }
+
+function changeColorWhite() {
+    for(i=0; i<boxClass.length; i++) {
+        boxClass[i].style.backgroundColor = 'white';
+        boxClass[i].style.border = "1px solid #d6d6d6";
+    }
+}
+
 //Slider (zmiana koloru strony na ciemny)
 switchDark.addEventListener("click", () => {
     if(document.switchDark.checkboxDark.checked == false){
-        body.style.backgroundColor = "darkgray";
+        body.style.backgroundColor = "#5f5f5f";
+        box1.style.backgroundColor = "#8d8d8d";
+        box1.style.border = "1px solid #3a3a3a";
+            boxCreate.style.backgroundColor = "#8d8d8d";
+            boxCreate.style.border = "1px solid #3a3a3a";
+            imgCreate.style.backgroundColor = "#cdcdcd";
+        changeColorDark();
+
         document.switchDark.checkboxDark.checked = true;
     }else{
         body.style.backgroundColor = "white";
+        box1.style.backgroundColor = "white";
+        box1.style.border = "1px solid #d6d6d6";
+            boxCreate.style.backgroundColor = "white";
+            boxCreate.style.border = "1px solid #d6d6d6";
+            imgCreate.style.backgroundColor = defaultStatus;
+        changeColorWhite();
+
         document.switchDark.checkboxDark.checked = false;
     }
 });
@@ -312,6 +336,7 @@ function insertBefore() {
         newCreatefotoText.innerText = inTitle;
         inDescription = prompt("Wpisz opis");
         newCreatedescription.innerText = inDescription;
+        newSelect.innerText = `${inTitle}`; //zmiana nazwy selecta przy edytowaniu tytułu/opisu
     });
 
     //Tworzenie selecta
@@ -320,4 +345,14 @@ function insertBefore() {
         newSelect.classList = "selectListEl"; // klasa tworzonych elementów select
         newSelect.innerText = `${inTitle}`;
     selectListId.appendChild(newSelect);
+
+    //Zmiana koloru przy switchu true (dark)
+    if(document.switchDark.checkboxDark.checked === true){
+        console.log("dupa");
+        changeColorDark();
+    }
 }
+
+//TODO:
+//Ulepszyć css dark/white
+//po wybraniu selecta zostaje powiększone wybrane zdjęcie
