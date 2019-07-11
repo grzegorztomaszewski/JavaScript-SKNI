@@ -4,7 +4,7 @@
 
 /*Navigation*/
 #navigation {
-    display: inline-block;
+display: inline-block;
 }
 
 #gallery{
@@ -252,7 +252,7 @@ Bellow Create Box
     border: 1px solid gray;
     width: 70px;
     height: 35px;
-    font-size: 13px;    
+    font-size: 13px;
     cursor: pointer;
     background-color:white;
     margin: 32px 0px 0px 2px;
@@ -269,9 +269,3 @@ Bellow Create Box
     background-color: #3d992a;
     border: 1px solid gray;
 }
-/* 
-hover - później dodac
-.inputfile:focus + label,
-.inputfile + label:hover {
-    background-color: red;
-} */

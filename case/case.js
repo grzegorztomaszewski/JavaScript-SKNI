@@ -4,13 +4,13 @@
 // Galeria powinna na starcie wczytywać kilka przykładowych zdjęć i ich opisów z plików.        + (if JSON - przeglądarka TOR)
 // Powinien być jeden plik json z danymi zdjęć i odpowiednia ilość plików jpg/png.              +
 // Opisy i tytuły można edytować, karty zdjęć można dodawać i usuwać.                           +
-// Zdjęcie po kliknięciu powinno się powiększać dwukrotnie(bądź dowolną ilość razy).
-// Strona posiada tryb jasny i ciemny.
+// Zdjęcie po kliknięciu powinno się powiększać dwukrotnie(bądź dowolną ilość razy).            +
+// Strona posiada tryb jasny i ciemny.                                                          +
 // Style wedle uznania, ważne aby było widać różnicę między trybami.                            +
-// Przycisk RESET przywraca stronę do stanu początkowego, bez odświeżenia.
+// Przycisk RESET przywraca stronę do stanu początkowego, bez odświeżenia.                      +
 // Licznik zdjęć w galerii powinien się zmieniać w zależności od ilości zdjęć                   +
-// Select obok resetu powinien zawierać aktualną listę tytułów zdjęć,
-//  i po wybraniu jednego z tytułów tylko to zdjęcie ma zostać w galerii.
+// Select obok resetu powinien zawierać aktualną listę tytułów zdjęć,                           +
+// i po wybraniu jednego z tytułów tylko to zdjęcie ma zostać w galerii.                        -
 // Przycisk edytuj na kartach zdjęć ma odblokowywać i blokować                                  +
 // możliwość edycji tytułu i opisu danego zdjęcia                                               +
 
@@ -58,67 +58,73 @@ descriptionCreate.innerText = "Wpisz opis";
 //Licznik zdjęć na stronie
 let counter = 1;
 let boxCounter = Number(1);
-counterText.innerText =  "Licznik zdjęć: "+ counter;
+counterText.innerText = "Licznik zdjęć: "+ counter;
 function CounterPlus(){
-    counterText.innerText =  "Licznik zdjęć: "+ ++counter;
+    counterText.innerText = "Licznik zdjęć: "+ ++counter;
     boxCounter = boxCounter + Number(1);
 }
 
 function CounterMinus(){
-    counterText.innerText =  "Licznik zdjęć: "+ --counter;
+    counterText.innerText = "Licznik zdjęć: "+ --counter;
 }
+
+//Tworzenie selectBox1
+createSelectBox1();
+const selectBox1 = document.getElementById("selectbox1");
+
 
 //Przycisk RESET
 btReset.addEventListener('click',() =>{
     if(confirm("Czy na pewno chcesz zresetować stronę do ustawień fabrycznych?\n Spowoduje to całkowite usunięcie całej dodanej zawartości."))
     {
-        $('.box').remove();     //usuwanie wszystkich zdjęć oprócz 1wszego defaultowego
+        $('.box').remove(); //usuwanie wszystkich zdjęć oprócz 1wszego defaultowego
 
         //usunięcie dzieci selecta
         while(selectListId.firstElementChild){
             selectListId.firstElementChild.remove();
         }
          //Ustawienie box1
-            if(box1.style.display == "none"){
-                    box1.style.display = "inline-block";
-                    fotoText.innerText = "Zdjęcie 1";
-                    description.innerText = "Husky Syberyjski";
-                    counter = 1;
-                    counterText.innerText =  "Licznik zdjęć: "+ counter;
-                }
-                else{
-                    fotoText.innerText = "Zdjęcie 1";
-                    description.innerText = "Husky Syberyjski";
-                    counter = 1;
-                    counterText.innerText =  "Licznik zdjęć: "+ counter;
-                }
-                //Ustawienie tytułu i opisu dla boxCreate
-                fotoTextCreate.innerText = "Wpisz tytuł";
-                descriptionCreate.innerText = "Wpisz opis";
-                
-                //Ustawianie kolorystyki strony
-                if(document.switchDark.checkboxDark.checked = true){
-                    body.style.backgroundColor = "white";
-                    document.switchDark.checkboxDark.checked = false;
-                }
-                
-                imgCreate.src = '';     //usuwanie zdjęcia, jeżeli zostało zaimportowane
-                createSelectBox1();
+        if(box1.style.display == "none"){
+            box1.style.display = "inline-block";
+            fotoText.innerText = "Zdjęcie 1";
+            description.innerText = "Husky Syberyjski";
+            counter = 1;
+            counterText.innerText = "Licznik zdjęć: "+ counter;
         }
-    });
+        else{
+            fotoText.innerText = "Zdjęcie 1";
+            description.innerText = "Husky Syberyjski";
+            counter = 1;
+            counterText.innerText = "Licznik zdjęć: "+ counter;
+        }
+        //Ustawienie tytułu i opisu dla boxCreate
+        fotoTextCreate.innerText = "Wpisz tytuł";
+        descriptionCreate.innerText = "Wpisz opis";
+                
+        //Ustawianie kolorystyki strony
+        if(document.switchDark.checkboxDark.checked = true){
+            body.style.backgroundColor = "white";
+            sliderOffDark();
+            document.switchDark.checkboxDark.checked = false;
+        }
+        imgCreate.src = ''; //usuwanie zdjęcia, jeżeli zostało zaimportowane
+        createSelectBox1();
+    }
+});
+
 
 //wczytywanie pliku JSON
 fetch("data.json")
   .then(json => json.json()) //zamienia pobrany plik na format json. Jeżeli chcesz inny format wpisz.text() lub .blob() 
-  .then(json =>{    //dostęp do właściwości obiektu JSON
-    fotoTextCreate.innerText = json.Photo0.title;   //title foto pobrane z JSON'a dla foto Create
+  .then(json =>{ //dostęp do właściwości obiektu JSON
+    fotoTextCreate.innerText = json.Photo0.title; //title foto pobrane z JSON'a dla foto Create
     descriptionCreate.innerText = json.Photo0.description;
     fotoText.innerText = json.Photo1.title; //title foto pobrane z JSON'a dla foto ostworzonego
     description.innerText = json.Photo1.description;
     //console.log(json);
 
 });
-
+//zmiana klasy boxClass (tylko)
 function changeColorDark() {
     for(i=0; i<boxClass.length; i++) {
       boxClass[i].style.backgroundColor = '#8d8d8d';
@@ -128,56 +134,44 @@ function changeColorDark() {
 
 function changeColorWhite() {
     for(i=0; i<boxClass.length; i++) {
-        boxClass[i].style.backgroundColor = 'white';
-        boxClass[i].style.border = "1px solid #d6d6d6";
+      boxClass[i].style.backgroundColor = 'white';
+      boxClass[i].style.border = "1px solid #d6d6d6";
     }
 }
 
 //Slider (zmiana koloru strony na ciemny)
+function sliderOnDark(){
+    body.style.backgroundColor = "#5f5f5f";
+    box1.style.backgroundColor = "#8d8d8d";
+    box1.style.border = "1px solid #3a3a3a";
+        boxCreate.style.backgroundColor = "#8d8d8d";
+        boxCreate.style.border = "1px solid #3a3a3a";
+        imgCreate.style.backgroundColor = "#cdcdcd";
+    changeColorDark();
+
+    document.switchDark.checkboxDark.checked = true;
+}
+
+function sliderOffDark(){
+    body.style.backgroundColor = "white";
+    box1.style.backgroundColor = "white";
+    box1.style.border = "1px solid #d6d6d6";
+        boxCreate.style.backgroundColor = "white";
+        boxCreate.style.border = "1px solid #d6d6d6";
+        imgCreate.style.backgroundColor = defaultStatus;
+    changeColorWhite();
+
+    document.switchDark.checkboxDark.checked = false;
+}
+
 switchDark.addEventListener("click", () => {
     if(document.switchDark.checkboxDark.checked == false){
-        body.style.backgroundColor = "#5f5f5f";
-        box1.style.backgroundColor = "#8d8d8d";
-        box1.style.border = "1px solid #3a3a3a";
-            boxCreate.style.backgroundColor = "#8d8d8d";
-            boxCreate.style.border = "1px solid #3a3a3a";
-            imgCreate.style.backgroundColor = "#cdcdcd";
-        changeColorDark();
-
-        document.switchDark.checkboxDark.checked = true;
+        sliderOnDark();
     }else{
-        body.style.backgroundColor = "white";
-        box1.style.backgroundColor = "white";
-        box1.style.border = "1px solid #d6d6d6";
-            boxCreate.style.backgroundColor = "white";
-            boxCreate.style.border = "1px solid #d6d6d6";
-            imgCreate.style.backgroundColor = defaultStatus;
-        changeColorWhite();
-
-        document.switchDark.checkboxDark.checked = false;
+        sliderOffDark();
     }
 });
 //----------------------------
-
-//Button Edytuj box1
-btEdit.addEventListener("click", () => {
-    inTitle = prompt("Wpisz tytuł");
-    fotoText.innerText = inTitle;
-    inDescription = prompt("Wpisz opis");
-    description.innerText = inDescription;
-});
-//Button Usuń dla Box1
-    btDelete.addEventListener('click',() =>{
-        if(confirm("Czy na pewno chcesz usunąć to zdjęcie?"))
-        {
-            box1.style.display = "none";
-            CounterMinus();
-
-           const delSelectBox1 = document.querySelector(`#selectbox1`);
-           delSelectBox1.remove();
-        }
-    });
-
 //Select dla box1
 function createSelectBox1(){
     const newSelect = document.createElement("option");
@@ -186,7 +180,25 @@ function createSelectBox1(){
     newSelect.innerText = `${fotoText.innerText}`;
     selectListId.appendChild(newSelect);
 }
-createSelectBox1();
+//Button Edytuj box1
+btEdit.addEventListener("click", () => {
+    inTitle = prompt("Wpisz tytuł");
+    fotoText.innerText = inTitle;
+    inDescription = prompt("Wpisz opis");
+    description.innerText = inDescription;
+    selectBox1.innerText = `${inTitle}`;
+});
+//Button Usuń dla Box1
+    btDelete.addEventListener('click',() =>{
+        if(confirm("Czy na pewno chcesz usunąć to zdjęcie?"))
+        {
+            box1.style.display = "none";
+            CounterMinus();
+
+            selectBox1.remove();
+        }
+    });
+
 
 // <<<<<<<<<< CREATE >>>>>>>>>>>>>>
 //Button Edytuj Create
@@ -212,7 +224,7 @@ reader.onload = function(){
 
 //Button Dodaj
 btAdd.addEventListener("click", () =>{
-        if(fotoTextCreate.innerText !== "Wpisz tytuł" &&  descriptionCreate.innerText !== "Wpisz opis" && fotoTextCreate.innerText !== "" &&  descriptionCreate.innerText !== "" && imgCreate.src !== ""){
+        if(fotoTextCreate.innerText !== "Wpisz tytuł" && descriptionCreate.innerText !== "Wpisz opis" && fotoTextCreate.innerText !== "" && descriptionCreate.innerText !== "" && imgCreate.src !== ""){
             CounterPlus();
             //tworzenie nowego elementu w DOM
             insertBefore();
@@ -323,9 +335,9 @@ function insertBefore() {
     newCreateBtDel.addEventListener('click',() =>{
         if(confirm("Czy na pewno chcesz usunąć to zdjęcie?"))
         {
-            newCreateBox.remove();  //Usuwanie boxa
+            newCreateBox.remove(); //Usuwanie boxa
             CounterMinus();
-            const newSelectToDelete = document.querySelector(`#selectbox${boxCounter}`);    //Usuwanie selecta
+            const newSelectToDelete = document.querySelector(`#selectbox${boxCounter}`); //Usuwanie selecta
             newSelectToDelete.remove();
         }
     });
@@ -348,11 +360,10 @@ function insertBefore() {
 
     //Zmiana koloru przy switchu true (dark)
     if(document.switchDark.checkboxDark.checked === true){
-        console.log("dupa");
         changeColorDark();
     }
 }
 
 //TODO:
-//Ulepszyć css dark/white
 //po wybraniu selecta zostaje powiększone wybrane zdjęcie
+//Naprawić select box1 - po resecie i edycji tytułu wyświetla zły tytuł w opcji selecta
